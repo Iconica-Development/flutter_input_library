@@ -36,7 +36,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
   final Widget? label;
   final String? initialValue;
   final Function(String?)? onSaved;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
 
@@ -89,7 +89,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final TextInputType? keyboardType;
   final String? initialValue;
   final Function(String?)? onSaved;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
 

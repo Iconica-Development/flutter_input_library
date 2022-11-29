@@ -11,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class FlutterFormInputSwitch extends ConsumerWidget {
   final Widget? label;
   final Function(bool?)? onSaved;
-  final String Function(bool?)? validator;
+  final String? Function(bool?)? validator;
   final Function(bool?)? onChanged;
   final bool? initialValue;
 

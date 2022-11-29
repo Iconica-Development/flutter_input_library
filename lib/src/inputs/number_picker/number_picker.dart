@@ -25,7 +25,7 @@ class FlutterFormInputNumberPicker extends ConsumerWidget {
   final int minValue;
   final int maxValue;
   final Function(int?)? onSaved;
-  final String Function(int?)? validator;
+  final String? Function(int?)? validator;
   final int? initialValue;
   final Function(int?)? onChanged;
 
