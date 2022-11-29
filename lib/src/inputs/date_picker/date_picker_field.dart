@@ -128,7 +128,7 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
       keyboardType: TextInputType.none,
       readOnly: true,
       key: Key(currentValue.toString()),
-      initialValue: widget.initialValue,
+      initialValue: currentValue.isEmpty ? widget.initialValue : currentValue,
       onSaved: (value) => widget.onSaved?.call(value),
       onTap: () async {
         String userInput = await getInputFromUser(widget.inputType);

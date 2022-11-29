@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 FlutterFormInputDateTime(
-                  inputType: FlutterFormDateTimeType.dateTime,
+                  inputType: FlutterFormDateTimeType.date,
                   dateFormat: DateFormat('dd/MM/yyyy HH:mm'),
                   onChanged: (v) {
                     print('Date changed to $v');
