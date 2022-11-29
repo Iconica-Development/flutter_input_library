@@ -23,7 +23,7 @@ class FlutterFormInputCarousel extends ConsumerWidget {
   final List<Widget> items;
   final double height;
   final Function(int?)? onSaved;
-  final String Function(int?)? validator;
+  final String? Function(int?)? validator;
   final Function(int?)? onChanged;
   final int? initialValue;
 

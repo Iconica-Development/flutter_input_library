@@ -24,7 +24,7 @@ class FlutterFormInputSlider extends ConsumerWidget {
   final int minValue;
   final int maxValue;
   final Function(double?)? onSaved;
-  final String Function(double?)? validator;
+  final String? Function(double?)? validator;
   final double? initialValue;
   final Function(double?)? onChanged;
 
