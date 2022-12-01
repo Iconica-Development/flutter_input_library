@@ -22,6 +22,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
     this.onSaved,
     this.validator,
     this.onFieldSubmitted,
+    this.style,
   }) : super(
           key: key,
         );
@@ -39,6 +40,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
   final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,6 +50,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
         );
 
     return TextFormField(
+      style: style,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       initialValue: initialValue,
       onSaved: (value) => onSaved?.call(value),
