@@ -118,8 +118,19 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
           break;
         case FlutterFormDateTimeType.time:
           userInput = await showTimePicker(
-                  context: context, initialTime: TimeOfDay.now())
-              .then((value) => value == null ? '' : value.format(context));
+                  builder: (BuildContext context, Widget? child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context)
+                          .copyWith(alwaysUse24HourFormat: true),
+                      child: child!,
+                    );
+                  },
+                  context: context,
+                  initialTime: TimeOfDay.now())
+              .then((value) => value == null
+                  ? ''
+                  : MaterialLocalizations.of(context)
+                      .formatTimeOfDay(value, alwaysUse24HourFormat: true));
       }
       return userInput;
     }
