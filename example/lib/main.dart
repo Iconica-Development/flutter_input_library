@@ -50,35 +50,45 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Container(height: 10),
+                const Text('FlutterFormInputSwitch'),
                 FlutterFormInputSwitch(
                   initialValue: true,
                   onChanged: (v) {
-                    print('Switch changed to $v');
+                    debugPrint('Switch changed to $v');
                   },
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputDateTime'),
                 FlutterFormInputDateTime(
                   inputType: FlutterFormDateTimeType.date,
                   dateFormat: DateFormat('dd/MM/yyyy HH:mm'),
                   onChanged: (v) {
-                    print('Date changed to $v');
+                    debugPrint('Date changed to $v');
                   },
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputNumberPicker'),
                 FlutterFormInputNumberPicker(
                   onChanged: (v) {
-                    print('Number changed to $v');
+                    debugPrint('Number changed to $v');
                   },
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputSlider'),
                 FlutterFormInputSlider(
                   onChanged: (v) {
-                    print('Slider changed to $v');
+                    debugPrint('Slider changed to $v');
                   },
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputCarousel'),
                 SizedBox(
-                  height: 100,
-                  width: 100,
+                  height: 150,
+                  width: 150,
                   child: FlutterFormInputCarousel(
                     onChanged: (v) {
-                      print('Carousel changed to $v');
+                      debugPrint('Carousel changed to $v');
                     },
                     items: [
                       Container(
@@ -99,25 +109,32 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputPlainText'),
                 FlutterFormInputPlainText(
                   onChanged: (v) {
-                    print('Plain text changed to $v');
+                    debugPrint('Plain text changed to $v');
                   },
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputMultiLine'),
                 SizedBox(
-                  height: 50,
-                  width: 200,
+                  height: 200,
+                  width: 300,
                   child: FlutterFormInputMultiLine(
                     onChanged: (v) {
-                      print('Multi line changed to $v');
+                      debugPrint('Multi line changed to $v');
                     },
                   ),
                 ),
+                Container(height: 50),
+                const Text('FlutterFormInputPassword'),
                 FlutterFormInputPassword(
                   onChanged: (v) {
-                    print('Password changed to $v');
+                    debugPrint('Password changed to $v');
                   },
                 ),
+                Container(height: 50),
               ],
             ),
           ),

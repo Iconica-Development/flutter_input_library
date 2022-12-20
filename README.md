@@ -1,14 +1,18 @@
-[![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+[![pub package](https://img.shields.io/pub/v/flutter_input_library.svg)](https://github.com/Iconica-Development) [![Build status](https://img.shields.io/github/workflow/status/Iconica-Development/flutter_input_library/CI)](https://github.com/Iconica-Development/flutter_input_library/actions/new) [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart) 
 
-Generic input library for Flutter.
+# Flutter Input Library
+
+Input library for Flutter to make creating form inputs a little easier.
+
+![Input GIF](flutter_input_library.gif)
 
 ## Setup
 
-Add `flutter_input_library` to your `pubspec.yaml`:
+To use this package, add `flutter_input_library` as a dependency in your pubspec.yaml file.
 
 ## How to use
 
-Look at the example for a simple [example](./example/lib/main.dart)
+See the [Example Code](example/lib/main.dart) for an example on how to use this package.
 
 ## Issues
 
