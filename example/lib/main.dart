@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(height: 50),
                 const Text('FlutterFormInputDateTime'),
                 FlutterFormInputDateTime(
+                  decoration: const InputDecoration(label: Text('test')),
                   inputType: FlutterFormDateTimeType.time,
                   dateFormat: DateFormat('HH:mm'),
                   onChanged: (v) {

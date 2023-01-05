@@ -11,6 +11,7 @@ import 'package:intl/intl.dart';
 
 class DateTimeInputField extends ConsumerStatefulWidget {
   const DateTimeInputField({
+    this.decoration,
     Key? key,
     required this.inputType,
     this.label,
@@ -28,6 +29,7 @@ class DateTimeInputField extends ConsumerStatefulWidget {
   }) : super(
           key: key,
         );
+  final InputDecoration? decoration;
   final FlutterFormDateTimeType inputType;
   final DateFormat dateFormat;
   final bool showIcon;
@@ -149,11 +151,12 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
         });
       },
       validator: (value) => widget.validator?.call(value),
-      decoration: InputDecoration(
-        suffixIcon: widget.showIcon ? Icon(widget.icon) : null,
-        focusColor: Theme.of(context).primaryColor,
-        label: widget.label ?? const Text("Date"),
-      ),
+      decoration: widget.decoration ??
+          InputDecoration(
+            suffixIcon: widget.showIcon ? Icon(widget.icon) : null,
+            focusColor: Theme.of(context).primaryColor,
+            label: widget.label ?? const Text("Date"),
+          ),
     );
   }
 }

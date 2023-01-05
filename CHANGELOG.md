@@ -5,3 +5,7 @@
 ## 1.0.0
 
 * enforce 24h clock in the time picker because it can caused a bug on web
+
+## 1.0.1
+
+* add decoration option for datetime input fields
