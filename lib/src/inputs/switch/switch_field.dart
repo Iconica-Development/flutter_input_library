@@ -18,7 +18,6 @@ class SwitchFormField extends FormField<bool> {
             onSaved: onSaved,
             validator: validator,
             initialValue: initialValue,
-            focusNode: focusNode,
             builder: (FormFieldState<bool> state) {
               return SwitchWidget(
                 initialValue: initialValue,
