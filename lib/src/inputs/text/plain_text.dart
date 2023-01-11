@@ -10,6 +10,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
   const FlutterFormInputPlainText({
     Key? key,
     this.label,
+    this.focusNode,
     this.decoration,
     this.textAlignVertical,
     this.expands = false,
@@ -35,6 +36,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
   final EdgeInsets? scrollPadding;
   final TextInputType? keyboardType;
   final Widget? label;
+  final FocusNode? focusNode;
   final String? initialValue;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
@@ -53,6 +55,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
       style: style,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       initialValue: initialValue,
+      focusNode: focusNode,
       onSaved: (value) => onSaved?.call(value),
       validator: (value) => validator?.call(value),
       onChanged: (value) => onChanged?.call(value),
@@ -71,6 +74,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   const FlutterFormInputMultiLine({
     Key? key,
     this.label,
+    this.focusNode,
     this.hint,
     this.maxCharacters,
     this.scrollPadding,
@@ -84,6 +88,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   }) : super(key: key);
 
   final Widget? label;
+  final FocusNode? focusNode;
   final String? hint;
   final int? maxCharacters;
 
@@ -106,6 +111,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
             textAlignVertical: TextAlignVertical.top,
             expands: true,
             maxLines: null,
+            focusNode: focusNode,
             maxLength: maxCharacters,
             initialValue: initialValue,
             scrollPadding: scrollPadding,

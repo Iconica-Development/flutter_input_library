@@ -9,6 +9,7 @@ class SwitchFormField extends FormField<bool> {
     Key? key,
     required FormFieldSetter<bool> onSaved,
     required FormFieldValidator<bool> validator,
+    FocusNode? focusNode,
     bool initialValue = false,
     bool autovalidate = false,
     void Function(bool? value)? onChanged,
@@ -17,10 +18,12 @@ class SwitchFormField extends FormField<bool> {
             onSaved: onSaved,
             validator: validator,
             initialValue: initialValue,
+            focusNode: focusNode,
             builder: (FormFieldState<bool> state) {
               return SwitchWidget(
                 initialValue: initialValue,
                 state: state,
+                focusNode: focusNode,
                 onChanged: onChanged,
               );
             });
@@ -31,11 +34,13 @@ class SwitchWidget extends StatefulWidget {
     this.initialValue = false,
     required this.state,
     this.onChanged,
+    this.focusNode,
     super.key,
   });
 
   final bool initialValue;
   final FormFieldState<bool> state;
+  final FocusNode? focusNode;
   final void Function(bool? value)? onChanged;
 
   @override
@@ -49,6 +54,7 @@ class _SwitchWidgetState extends State<SwitchWidget> {
   Widget build(BuildContext context) {
     return Switch(
       value: value,
+      focusNode: widget.focusNode,
       onChanged: (bool value) {
         widget.onChanged?.call(value);
 
