@@ -17,7 +17,6 @@ class SliderFormField extends FormField<double> {
             key: key,
             onSaved: onSaved,
             validator: validator,
-            focusNode: focusNode,
             initialValue: initialValue,
             builder: (FormFieldState<double> state) {
               return Slider(
