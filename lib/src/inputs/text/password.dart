@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// as the [controller] parameter and an optional [Widget] as [label]
 class FlutterFormInputPassword extends ConsumerStatefulWidget {
   final Widget? label;
+  final FocusNode? focusNode;
   final String? initialValue;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
@@ -18,6 +19,7 @@ class FlutterFormInputPassword extends ConsumerStatefulWidget {
   const FlutterFormInputPassword({
     Key? key,
     this.label,
+    this.focusNode,
     this.initialValue,
     this.onSaved,
     this.validator,
@@ -38,6 +40,7 @@ class _PasswordTextFieldState extends ConsumerState<FlutterFormInputPassword> {
     return TextFormField(
       initialValue: widget.initialValue,
       obscureText: obscured,
+      focusNode: widget.focusNode,
       onSaved: (value) => widget.onSaved?.call(value),
       validator: (value) => widget.validator?.call(value),
       onChanged: (value) => widget.onChanged?.call(value),

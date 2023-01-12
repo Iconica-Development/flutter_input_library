@@ -9,3 +9,7 @@
 ## 1.0.1
 
 * add decoration option for datetime input fields
+
+## 1.0.2
+
+* add FocusNode option for input fields

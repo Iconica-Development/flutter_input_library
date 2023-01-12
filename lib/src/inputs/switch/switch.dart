@@ -14,6 +14,7 @@ class FlutterFormInputSwitch extends ConsumerWidget {
   final String? Function(bool?)? validator;
   final Function(bool?)? onChanged;
   final bool? initialValue;
+  final FocusNode? focusNode;
 
   const FlutterFormInputSwitch({
     Key? key,
@@ -21,6 +22,7 @@ class FlutterFormInputSwitch extends ConsumerWidget {
     this.onSaved,
     this.validator,
     this.onChanged,
+    this.focusNode,
     this.initialValue = false,
   }) : super(
           key: key,
@@ -33,6 +35,7 @@ class FlutterFormInputSwitch extends ConsumerWidget {
       onChanged: (value) => onChanged?.call(value),
       validator: (value) => validator?.call(value),
       initialValue: initialValue ?? false,
+      focusNode: focusNode,
     );
   }
 }

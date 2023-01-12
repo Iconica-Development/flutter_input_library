@@ -16,6 +16,7 @@ class FlutterFormInputSlider extends ConsumerWidget {
     this.onChanged,
     this.initialValue,
     this.validator,
+    this.focusNode,
   })  : assert(minValue < maxValue),
         super(
           key: key,
@@ -27,6 +28,7 @@ class FlutterFormInputSlider extends ConsumerWidget {
   final String? Function(double?)? validator;
   final double? initialValue;
   final Function(double?)? onChanged;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,6 +37,7 @@ class FlutterFormInputSlider extends ConsumerWidget {
       validator: (value) => validator?.call(value),
       onChanged: (value) => onChanged?.call(value),
       initialValue: initialValue ?? 0.5,
+      focusNode: focusNode,
     );
   }
 }
