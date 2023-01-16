@@ -62,8 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text('FlutterFormInputDateTime'),
                 FlutterFormInputDateTime(
                   decoration: const InputDecoration(label: Text('test')),
-                  inputType: FlutterFormDateTimeType.time,
-                  dateFormat: DateFormat('HH:mm'),
+                  autovalidateMode: AutovalidateMode.always,
+                  validator: (p0) {
+                    if (p0 == null || p0.isEmpty) return null;
+                    return DateFormat('dd/MMMM/yyyy HH:mm')
+                            .parse(p0)
+                            .isAfter(DateTime.now())
+                        ? null
+                        : 'Date must be in the future';
+                  },
+                  inputType: FlutterFormDateTimeType.dateTime,
+                  dateFormat: DateFormat('dd/MMMM/yyyy HH:mm'),
                   onChanged: (v) {
                     debugPrint('Date changed to $v');
                   },

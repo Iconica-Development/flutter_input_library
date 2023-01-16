@@ -15,23 +15,24 @@ enum FlutterFormDateTimeType {
 }
 
 class FlutterFormInputDateTime extends ConsumerWidget {
-  const FlutterFormInputDateTime({
-    this.decoration,
-    Key? key,
-    this.label,
-    this.showIcon = true,
-    required this.inputType,
-    required this.dateFormat,
-    this.firstDate,
-    this.lastDate,
-    this.initialDate,
-    this.initialDateTimeRange,
-    this.icon = Icons.calendar_today,
-    this.initialValue,
-    this.onChanged,
-    this.onSaved,
-    this.validator,
-  }) : super(
+  const FlutterFormInputDateTime(
+      {this.decoration,
+      Key? key,
+      this.label,
+      this.showIcon = true,
+      required this.inputType,
+      required this.dateFormat,
+      this.firstDate,
+      this.lastDate,
+      this.initialDate,
+      this.initialDateTimeRange,
+      this.icon = Icons.calendar_today,
+      this.initialValue,
+      this.onChanged,
+      this.onSaved,
+      this.validator,
+      this.autovalidateMode = AutovalidateMode.disabled})
+      : super(
           key: key,
         );
   final InputDecoration? decoration;
@@ -48,11 +49,14 @@ class FlutterFormInputDateTime extends ConsumerWidget {
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
   final void Function(String?)? onChanged;
+  final AutovalidateMode autovalidateMode;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DateTimeInputField(
       decoration: decoration,
+      autovalidateMode: autovalidateMode,
+      validator: validator,
       label: label,
       icon: icon,
       firstDate: firstDate,
