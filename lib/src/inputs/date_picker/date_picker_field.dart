@@ -14,6 +14,7 @@ class DateTimeInputField extends ConsumerStatefulWidget {
     this.decoration,
     Key? key,
     required this.inputType,
+    required this.autovalidateMode,
     this.label,
     this.showIcon = true,
     this.icon,
@@ -30,6 +31,7 @@ class DateTimeInputField extends ConsumerStatefulWidget {
           key: key,
         );
   final InputDecoration? decoration;
+  final AutovalidateMode autovalidateMode;
   final FlutterFormDateTimeType inputType;
   final DateFormat dateFormat;
   final bool showIcon;
@@ -100,7 +102,16 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
               String secondInput =
                   await getInputFromUser(FlutterFormDateTimeType.time);
               if (secondInput != '') {
-                userInput = '$value $secondInput';
+                var date = widget.dateFormat.parse(value);
+                var time = DateFormat('dd MM yyyy hh:mm')
+                    .parse('01 01 1970 $secondInput');
+                userInput = widget.dateFormat.format(DateTime(
+                  date.year,
+                  date.month,
+                  date.day,
+                  time.hour,
+                  time.minute,
+                ));
               }
             }
           });
@@ -138,6 +149,7 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
     }
 
     return TextFormField(
+      autovalidateMode: widget.autovalidateMode,
       keyboardType: TextInputType.none,
       readOnly: true,
       key: Key(currentValue.toString()),

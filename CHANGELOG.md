@@ -13,3 +13,6 @@
 ## 1.0.3
 
 * add FocusNode option for input fields
+
+## 1.0.4
+* fix datetimepicker format and validator
