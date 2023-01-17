@@ -17,6 +17,7 @@ enum FlutterFormDateTimeType {
 class FlutterFormInputDateTime extends ConsumerWidget {
   const FlutterFormInputDateTime(
       {this.decoration,
+      this.style,
       Key? key,
       this.label,
       this.showIcon = true,
@@ -35,6 +36,7 @@ class FlutterFormInputDateTime extends ConsumerWidget {
       : super(
           key: key,
         );
+  final TextStyle? style;
   final InputDecoration? decoration;
   final Widget? label;
   final bool showIcon;
@@ -54,6 +56,7 @@ class FlutterFormInputDateTime extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return DateTimeInputField(
+      style: style,
       decoration: decoration,
       autovalidateMode: autovalidateMode,
       validator: validator,

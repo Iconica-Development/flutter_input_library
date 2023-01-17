@@ -16,3 +16,6 @@
 
 ## 1.0.4
 * fix datetimepicker format and validator
+
+## 1.0.5
+* add style to datetime
