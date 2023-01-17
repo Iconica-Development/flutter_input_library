@@ -27,9 +27,11 @@ class DateTimeInputField extends ConsumerStatefulWidget {
     this.onChanged,
     this.onSaved,
     this.validator,
+    required this.style,
   }) : super(
           key: key,
         );
+  final TextStyle? style;
   final InputDecoration? decoration;
   final AutovalidateMode autovalidateMode;
   final FlutterFormDateTimeType inputType;
@@ -149,6 +151,7 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
     }
 
     return TextFormField(
+      style: widget.style,
       autovalidateMode: widget.autovalidateMode,
       keyboardType: TextInputType.none,
       readOnly: true,
