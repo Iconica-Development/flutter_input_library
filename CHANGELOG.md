@@ -19,3 +19,7 @@
 
 ## 1.0.5
 * add style to datetime
+
+## 1.0.6
+* add initial timepicker parameter
+

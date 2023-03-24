@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(height: 50),
                 const Text('FlutterFormInputDateTime'),
                 FlutterFormInputDateTime(
+                  timePickerEntryMode: TimePickerEntryMode.dialOnly,
                   style: const TextStyle(color: Colors.red),
                   decoration: const InputDecoration(label: Text('test')),
                   inputType: FlutterFormDateTimeType.time,

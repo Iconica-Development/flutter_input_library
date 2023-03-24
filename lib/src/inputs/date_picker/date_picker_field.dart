@@ -27,6 +27,7 @@ class DateTimeInputField extends ConsumerStatefulWidget {
     this.onChanged,
     this.onSaved,
     this.validator,
+    required this.timePickerEntryMode,
     required this.style,
   }) : super(
           key: key,
@@ -47,6 +48,7 @@ class DateTimeInputField extends ConsumerStatefulWidget {
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
   final void Function(String?)? onChanged;
+  final TimePickerEntryMode timePickerEntryMode;
 
   @override
   ConsumerState<DateTimeInputField> createState() => _DateInputFieldState();
@@ -133,6 +135,7 @@ class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
           break;
         case FlutterFormDateTimeType.time:
           userInput = await showTimePicker(
+                  initialEntryMode: widget.timePickerEntryMode,
                   builder: (BuildContext context, Widget? child) {
                     return MediaQuery(
                       data: MediaQuery.of(context)

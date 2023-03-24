@@ -165,7 +165,7 @@ class InfiniteListViewState extends State<InfiniteListView> {
       viewportBuilder: (BuildContext context, ViewportOffset offset) {
         return Builder(builder: (BuildContext context) {
           /// Build negative [ScrollPosition] for the negative scrolling [Viewport].
-          final state = Scrollable.of(context)!;
+          final state = Scrollable.of(context);
           final negativeOffset = _InfiniteScrollPosition(
             physics: scrollPhysics,
             context: state,

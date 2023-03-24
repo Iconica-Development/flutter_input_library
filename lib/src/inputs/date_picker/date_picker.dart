@@ -15,25 +15,26 @@ enum FlutterFormDateTimeType {
 }
 
 class FlutterFormInputDateTime extends ConsumerWidget {
-  const FlutterFormInputDateTime(
-      {this.decoration,
-      this.style,
-      Key? key,
-      this.label,
-      this.showIcon = true,
-      required this.inputType,
-      required this.dateFormat,
-      this.firstDate,
-      this.lastDate,
-      this.initialDate,
-      this.initialDateTimeRange,
-      this.icon = Icons.calendar_today,
-      this.initialValue,
-      this.onChanged,
-      this.onSaved,
-      this.validator,
-      this.autovalidateMode = AutovalidateMode.disabled})
-      : super(
+  const FlutterFormInputDateTime({
+    this.decoration,
+    this.style,
+    Key? key,
+    this.label,
+    this.showIcon = true,
+    required this.inputType,
+    required this.dateFormat,
+    this.firstDate,
+    this.lastDate,
+    this.initialDate,
+    this.initialDateTimeRange,
+    this.icon = Icons.calendar_today,
+    this.initialValue,
+    this.onChanged,
+    this.onSaved,
+    this.validator,
+    this.autovalidateMode = AutovalidateMode.disabled,
+    this.timePickerEntryMode = TimePickerEntryMode.dial,
+  }) : super(
           key: key,
         );
   final TextStyle? style;
@@ -52,6 +53,7 @@ class FlutterFormInputDateTime extends ConsumerWidget {
   final void Function(String?)? onSaved;
   final void Function(String?)? onChanged;
   final AutovalidateMode autovalidateMode;
+  final TimePickerEntryMode timePickerEntryMode;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -72,6 +74,7 @@ class FlutterFormInputDateTime extends ConsumerWidget {
       onChanged: (value) => onChanged?.call(value),
       onSaved: (value) => onSaved?.call(value),
       showIcon: showIcon,
+      timePickerEntryMode: timePickerEntryMode,
     );
   }
 }
