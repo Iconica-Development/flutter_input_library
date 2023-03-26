@@ -4,9 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-class FlutterFormInputPlainText extends ConsumerWidget {
+class FlutterFormInputPlainText extends StatelessWidget {
   const FlutterFormInputPlainText({
     Key? key,
     this.label,
@@ -45,7 +43,7 @@ class FlutterFormInputPlainText extends ConsumerWidget {
   final TextStyle? style;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     InputDecoration inputDecoration = decoration ??
         InputDecoration(
           label: label ?? const Text("Plain text"),
