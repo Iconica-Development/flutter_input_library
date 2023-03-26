@@ -27,8 +27,7 @@ class FlutterFormInputPassword extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<FlutterFormInputPassword> createState() =>
-      _PasswordTextFieldState();
+  State<FlutterFormInputPassword> createState() => _PasswordTextFieldState();
 }
 
 class _PasswordTextFieldState extends State<FlutterFormInputPassword> {

@@ -5,7 +5,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_input_library/src/inputs/slider/slider_field.dart';
 
-
 class FlutterFormInputSlider extends StatelessWidget {
   const FlutterFormInputSlider({
     Key? key,
