@@ -3,11 +3,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'carousel_form.dart';
 
-class FlutterFormInputCarousel extends ConsumerWidget {
+class FlutterFormInputCarousel extends StatelessWidget {
   const FlutterFormInputCarousel({
     Key? key,
     required this.items,
@@ -28,7 +27,7 @@ class FlutterFormInputCarousel extends ConsumerWidget {
   final int? initialValue;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return CarouselFormField(
       onSaved: (value) => onSaved?.call(value),
       validator: (value) => validator?.call(value),

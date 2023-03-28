@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_input_library/src/inputs/date_picker/date_picker_field.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 enum FlutterFormDateTimeType {
@@ -14,7 +13,7 @@ enum FlutterFormDateTimeType {
   range,
 }
 
-class FlutterFormInputDateTime extends ConsumerWidget {
+class FlutterFormInputDateTime extends StatelessWidget {
   const FlutterFormInputDateTime({
     this.decoration,
     this.style,
@@ -56,7 +55,7 @@ class FlutterFormInputDateTime extends ConsumerWidget {
   final TimePickerEntryMode timePickerEntryMode;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return DateTimeInputField(
       style: style,
       decoration: decoration,

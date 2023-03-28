@@ -3,11 +3,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'number_picker_field.dart';
 
-class FlutterFormInputNumberPicker extends ConsumerWidget {
+class FlutterFormInputNumberPicker extends StatelessWidget {
   const FlutterFormInputNumberPicker({
     Key? key,
     Widget? label,
@@ -30,7 +29,7 @@ class FlutterFormInputNumberPicker extends ConsumerWidget {
   final Function(int?)? onChanged;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return NumberPickerFormField(
       minValue: minValue,
       maxValue: maxValue,

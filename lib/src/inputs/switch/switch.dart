@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_input_library/src/inputs/switch/switch_field.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-class FlutterFormInputSwitch extends ConsumerWidget {
+class FlutterFormInputSwitch extends StatelessWidget {
   final Widget? label;
   final Function(bool?)? onSaved;
   final String? Function(bool?)? validator;
@@ -29,7 +27,7 @@ class FlutterFormInputSwitch extends ConsumerWidget {
         );
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return SwitchFormField(
       onSaved: (value) => onSaved?.call(value),
       onChanged: (value) => onChanged?.call(value),

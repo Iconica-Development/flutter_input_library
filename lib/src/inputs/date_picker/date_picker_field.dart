@@ -6,10 +6,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_input_library/src/inputs/date_picker/date_picker.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-class DateTimeInputField extends ConsumerStatefulWidget {
+class DateTimeInputField extends StatefulWidget {
   const DateTimeInputField({
     this.decoration,
     Key? key,
@@ -51,10 +50,10 @@ class DateTimeInputField extends ConsumerStatefulWidget {
   final TimePickerEntryMode timePickerEntryMode;
 
   @override
-  ConsumerState<DateTimeInputField> createState() => _DateInputFieldState();
+  State<DateTimeInputField> createState() => _DateInputFieldState();
 }
 
-class _DateInputFieldState extends ConsumerState<DateTimeInputField> {
+class _DateInputFieldState extends State<DateTimeInputField> {
   late final DateTime firstDate;
   late final DateTime lastDate;
   late final DateTime initialDate;

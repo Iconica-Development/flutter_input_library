@@ -3,11 +3,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Generates a [TextFormField] for passwords. It requires a [FlutterFormInputController]
 /// as the [controller] parameter and an optional [Widget] as [label]
-class FlutterFormInputPassword extends ConsumerStatefulWidget {
+class FlutterFormInputPassword extends StatefulWidget {
   final Widget? label;
   final FocusNode? focusNode;
   final String? initialValue;
@@ -28,11 +27,10 @@ class FlutterFormInputPassword extends ConsumerStatefulWidget {
   }) : super(key: key);
 
   @override
-  ConsumerState<FlutterFormInputPassword> createState() =>
-      _PasswordTextFieldState();
+  State<FlutterFormInputPassword> createState() => _PasswordTextFieldState();
 }
 
-class _PasswordTextFieldState extends ConsumerState<FlutterFormInputPassword> {
+class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
   bool obscured = true;
 
   @override

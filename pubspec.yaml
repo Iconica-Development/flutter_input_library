@@ -1,6 +1,6 @@
 name: flutter_input_library
 description: A new Flutter package project.
-version: 1.0.6
+version: 2.0.0
 repository: https://github.com/Iconica-Development/flutter_input_library
 
 environment:
@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_riverpod: any
-  intl: any
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -5,9 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_input_library/src/inputs/slider/slider_field.dart';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-class FlutterFormInputSlider extends ConsumerWidget {
+class FlutterFormInputSlider extends StatelessWidget {
   const FlutterFormInputSlider({
     Key? key,
     this.minValue = 0,
@@ -31,7 +29,7 @@ class FlutterFormInputSlider extends ConsumerWidget {
   final FocusNode? focusNode;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return SliderFormField(
       onSaved: (value) => onSaved?.call(value),
       validator: (value) => validator?.call(value),
