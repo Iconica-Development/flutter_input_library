@@ -23,3 +23,6 @@
 ## 1.0.6
 * add initial timepicker parameter
 
+## 2.0.0
+* remove 'riverpod' dependency
+ 
