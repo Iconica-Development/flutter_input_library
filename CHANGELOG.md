@@ -25,4 +25,7 @@
 
 ## 2.0.0
 * remove 'riverpod' dependency
+
+## 2.1.0
+* make compatible with flutter 3.10
  
