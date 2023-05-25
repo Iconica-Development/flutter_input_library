@@ -157,7 +157,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       autovalidateMode: widget.autovalidateMode,
       keyboardType: TextInputType.none,
       readOnly: true,
-      key: Key(currentValue.toString()),
+      key: UniqueKey(),
       initialValue: currentValue.isEmpty ? widget.initialValue : currentValue,
       onSaved: (value) => widget.onSaved?.call(value),
       onTap: () async {
