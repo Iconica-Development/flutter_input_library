@@ -84,7 +84,8 @@ class _DateInputFieldState extends State<DateTimeInputField> {
 
   @override
   Widget build(BuildContext context) {
-    Future<String> getInputFromUser(FlutterFormDateTimeType inputType) async {
+    Future<String> getInputFromUser(FlutterFormDateTimeType inputType,
+        [DateFormat? dateFormat]) async {
       String userInput = '';
       switch (inputType) {
         case FlutterFormDateTimeType.date:
@@ -106,8 +107,10 @@ class _DateInputFieldState extends State<DateTimeInputField> {
                   await getInputFromUser(FlutterFormDateTimeType.time);
               if (secondInput != '') {
                 var date = widget.dateFormat.parse(value);
-                var time = DateFormat('dd MM yyyy hh:mm')
-                    .parse('01 01 1970 $secondInput');
+                var time = dateFormat != null
+                    ? dateFormat.parse('01 01 1970 $secondInput')
+                    : DateFormat('dd MM yyyy HH:mm')
+                        .parse('01 01 1970 $secondInput');
                 userInput = widget.dateFormat.format(DateTime(
                   date.year,
                   date.month,
@@ -161,7 +164,10 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       initialValue: currentValue.isEmpty ? widget.initialValue : currentValue,
       onSaved: (value) => widget.onSaved?.call(value),
       onTap: () async {
-        String userInput = await getInputFromUser(widget.inputType);
+        String userInput = await getInputFromUser(
+          widget.inputType,
+          DateFormat('dd MM yyyy HH:mm'),
+        );
         setState(() {
           currentValue = userInput != '' ? userInput : currentValue;
           widget.onChanged?.call(userInput != '' ? userInput : currentValue);
