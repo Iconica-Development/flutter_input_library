@@ -21,6 +21,7 @@ class DateTimeInputField extends StatefulWidget {
     required this.firstDate,
     required this.lastDate,
     this.initialDate,
+    this.initialTime,
     this.initialDateTimeRange,
     this.initialValue,
     this.onChanged,
@@ -40,6 +41,7 @@ class DateTimeInputField extends StatefulWidget {
   final DateTime? firstDate;
   final DateTime? lastDate;
   final DateTime? initialDate;
+  final TimeOfDay? initialTime;
   final DateTimeRange? initialDateTimeRange;
   final IconData? icon;
   final Widget? label;
@@ -58,6 +60,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
   late final DateTime lastDate;
   late final DateTime initialDate;
   late final DateTimeRange initialDateRange;
+  late final TimeOfDay? initialTime;
   String currentValue = '';
 
   @override
@@ -81,6 +84,8 @@ class _DateInputFieldState extends State<DateTimeInputField> {
 
     super.initState();
   }
+
+  TimeOfDay get initialTimeOfDay => widget.initialTime ?? TimeOfDay.now();
 
   @override
   Widget build(BuildContext context) {
@@ -137,20 +142,20 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           break;
         case FlutterFormDateTimeType.time:
           userInput = await showTimePicker(
-                  initialEntryMode: widget.timePickerEntryMode,
-                  builder: (BuildContext context, Widget? child) {
-                    return MediaQuery(
-                      data: MediaQuery.of(context)
-                          .copyWith(alwaysUse24HourFormat: true),
-                      child: child!,
-                    );
-                  },
-                  context: context,
-                  initialTime: TimeOfDay.now())
-              .then((value) => value == null
-                  ? ''
-                  : MaterialLocalizations.of(context)
-                      .formatTimeOfDay(value, alwaysUse24HourFormat: true));
+            initialEntryMode: widget.timePickerEntryMode,
+            builder: (BuildContext context, Widget? child) {
+              return MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(alwaysUse24HourFormat: true),
+                child: child!,
+              );
+            },
+            context: context,
+            initialTime: initialTimeOfDay,
+          ).then((value) => value == null
+              ? ''
+              : MaterialLocalizations.of(context)
+                  .formatTimeOfDay(value, alwaysUse24HourFormat: true));
       }
       return userInput;
     }
