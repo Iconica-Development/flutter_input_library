@@ -29,3 +29,5 @@
 ## 2.1.0
 * make compatible with flutter 3.10
  
+ ## 2.2.0
+* Dateformat optional on input from the user, defaulting to 24 hour format
