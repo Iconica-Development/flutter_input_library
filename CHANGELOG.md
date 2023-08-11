@@ -31,3 +31,6 @@
  
  ## 2.2.0
 * Dateformat optional on input from the user, defaulting to 24 hour format
+
+ ## 2.2.1
+* Initial time optional on input from the user, defaulting to current time

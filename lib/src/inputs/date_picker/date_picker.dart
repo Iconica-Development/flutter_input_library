@@ -26,6 +26,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
     this.lastDate,
     this.initialDate,
     this.initialDateTimeRange,
+    this.initialTime,
     this.icon = Icons.calendar_today,
     this.initialValue,
     this.onChanged,
@@ -44,6 +45,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
   final DateFormat dateFormat;
   final DateTime? initialDate;
   final DateTimeRange? initialDateTimeRange;
+  final TimeOfDay? initialTime;
   final DateTime? firstDate;
   final DateTime? lastDate;
   final IconData icon;
@@ -69,6 +71,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
       dateFormat: dateFormat,
       initialDate: initialDate,
       initialDateTimeRange: initialDateTimeRange,
+      initialTime: initialTime,
       initialValue: initialValue,
       onChanged: (value) => onChanged?.call(value),
       onSaved: (value) => onSaved?.call(value),
