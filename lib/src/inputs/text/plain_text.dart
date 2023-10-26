@@ -22,6 +22,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.style,
+    this.enabled = true,
   }) : super(
           key: key,
         );
@@ -41,6 +42,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final TextStyle? style;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +66,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
       maxLines: maxLines,
       maxLength: maxLength,
       keyboardType: keyboardType,
+      enabled: enabled,
     );
   }
 }
@@ -75,6 +78,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.focusNode,
     this.hint,
     this.maxCharacters,
+    this.enabled = true,
     this.scrollPadding,
     this.keyboardType,
     this.initialValue,
@@ -89,6 +93,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final FocusNode? focusNode;
   final String? hint;
   final int? maxCharacters;
+  final bool enabled;
 
   final InputDecoration? decoration;
   final EdgeInsets? scrollPadding;
@@ -131,6 +136,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
                   ),
                   filled: true,
                 ),
+            enabled: enabled,
           ),
         ),
       ],
