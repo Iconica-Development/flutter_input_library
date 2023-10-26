@@ -30,6 +30,7 @@ class DateTimeInputField extends StatefulWidget {
     required this.timePickerEntryMode,
     required this.style,
     this.enabled = true,
+    this.onTapEnabled = true,
   }) : super(
           key: key,
         );
@@ -52,6 +53,7 @@ class DateTimeInputField extends StatefulWidget {
   final void Function(String?)? onChanged;
   final TimePickerEntryMode timePickerEntryMode;
   final bool enabled;
+  final bool onTapEnabled;
 
   @override
   State<DateTimeInputField> createState() => _DateInputFieldState();
@@ -174,16 +176,19 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       key: UniqueKey(),
       initialValue: currentValue.isEmpty ? widget.initialValue : currentValue,
       onSaved: (value) => widget.onSaved?.call(value),
-      onTap: () async {
-        String userInput = await getInputFromUser(
-          widget.inputType,
-          DateFormat('dd MM yyyy HH:mm'),
-        );
-        setState(() {
-          currentValue = userInput != '' ? userInput : currentValue;
-          widget.onChanged?.call(userInput != '' ? userInput : currentValue);
-        });
-      },
+      onTap: widget.onTapEnabled
+          ? () async {
+              String userInput = await getInputFromUser(
+                widget.inputType,
+                DateFormat('dd MM yyyy HH:mm'),
+              );
+              setState(() {
+                currentValue = userInput != '' ? userInput : currentValue;
+                widget.onChanged
+                    ?.call(userInput != '' ? userInput : currentValue);
+              });
+            }
+          : null,
       validator: (value) => widget.validator?.call(value),
       decoration: widget.decoration ??
           InputDecoration(

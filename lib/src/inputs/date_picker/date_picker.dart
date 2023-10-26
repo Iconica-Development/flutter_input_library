@@ -34,6 +34,8 @@ class FlutterFormInputDateTime extends StatelessWidget {
     this.validator,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.timePickerEntryMode = TimePickerEntryMode.dial,
+    this.enabled = true,
+    this.onTapEnabled = true,
   }) : super(
           key: key,
         );
@@ -55,6 +57,8 @@ class FlutterFormInputDateTime extends StatelessWidget {
   final void Function(String?)? onChanged;
   final AutovalidateMode autovalidateMode;
   final TimePickerEntryMode timePickerEntryMode;
+  final bool enabled;
+  final bool onTapEnabled;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +81,8 @@ class FlutterFormInputDateTime extends StatelessWidget {
       onSaved: (value) => onSaved?.call(value),
       showIcon: showIcon,
       timePickerEntryMode: timePickerEntryMode,
+      enabled: enabled,
+      onTapEnabled: onTapEnabled,
     );
   }
 }
