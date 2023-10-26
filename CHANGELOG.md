@@ -34,3 +34,6 @@
 
  ## 2.2.1
 * Initial time optional on input from the user, defaulting to current time
+
+## 2.3.0
+* The ability to set the enabled parameter of TextFormFields
