@@ -37,3 +37,7 @@
 
 ## 2.3.0
 * The ability to set the enabled parameter of TextFormFields
+
+## 2.4.0
+* The ability to disable the onTap paramater of the DatePicker
+* FlutterFormInputDateTime now also had the enabled parameter to provide to DateTimeInputField
