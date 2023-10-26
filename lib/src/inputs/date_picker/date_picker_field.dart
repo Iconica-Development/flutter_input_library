@@ -29,6 +29,7 @@ class DateTimeInputField extends StatefulWidget {
     this.validator,
     required this.timePickerEntryMode,
     required this.style,
+    this.enabled = true,
   }) : super(
           key: key,
         );
@@ -50,6 +51,7 @@ class DateTimeInputField extends StatefulWidget {
   final void Function(String?)? onSaved;
   final void Function(String?)? onChanged;
   final TimePickerEntryMode timePickerEntryMode;
+  final bool enabled;
 
   @override
   State<DateTimeInputField> createState() => _DateInputFieldState();
@@ -128,34 +130,38 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           });
           break;
         case FlutterFormDateTimeType.range:
-          userInput = (await showDateRangePicker(
-                      context: context,
-                      firstDate: firstDate,
-                      lastDate: lastDate,
-                      initialDateRange: initialDateRange)
-                  .then((value) {
-            return value != null
-                ? '${widget.dateFormat.format(value.start)} - ${widget.dateFormat.format(value.end)}'
-                : '';
-          }))
-              .toString();
+          if (context.mounted) {
+            userInput = (await showDateRangePicker(
+                        context: context,
+                        firstDate: firstDate,
+                        lastDate: lastDate,
+                        initialDateRange: initialDateRange)
+                    .then((value) {
+              return value != null
+                  ? '${widget.dateFormat.format(value.start)} - ${widget.dateFormat.format(value.end)}'
+                  : '';
+            }))
+                .toString();
+          }
           break;
         case FlutterFormDateTimeType.time:
-          userInput = await showTimePicker(
-            initialEntryMode: widget.timePickerEntryMode,
-            builder: (BuildContext context, Widget? child) {
-              return MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(alwaysUse24HourFormat: true),
-                child: child!,
-              );
-            },
-            context: context,
-            initialTime: initialTimeOfDay,
-          ).then((value) => value == null
-              ? ''
-              : MaterialLocalizations.of(context)
-                  .formatTimeOfDay(value, alwaysUse24HourFormat: true));
+          if (context.mounted) {
+            userInput = await showTimePicker(
+              initialEntryMode: widget.timePickerEntryMode,
+              builder: (BuildContext context, Widget? child) {
+                return MediaQuery(
+                  data: MediaQuery.of(context)
+                      .copyWith(alwaysUse24HourFormat: true),
+                  child: child!,
+                );
+              },
+              context: context,
+              initialTime: initialTimeOfDay,
+            ).then((value) => value == null
+                ? ''
+                : MaterialLocalizations.of(context)
+                    .formatTimeOfDay(value, alwaysUse24HourFormat: true));
+          }
       }
       return userInput;
     }
@@ -185,6 +191,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
             focusColor: Theme.of(context).primaryColor,
             label: widget.label ?? const Text("Date"),
           ),
+      enabled: widget.enabled,
     );
   }
 }

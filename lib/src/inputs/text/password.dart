@@ -14,6 +14,7 @@ class FlutterFormInputPassword extends StatefulWidget {
   final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
+  final bool enabled;
 
   const FlutterFormInputPassword({
     Key? key,
@@ -24,6 +25,7 @@ class FlutterFormInputPassword extends StatefulWidget {
     this.validator,
     this.onChanged,
     this.onFieldSubmitted,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -54,6 +56,7 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
           icon: Icon(obscured ? Icons.visibility_off : Icons.visibility),
         ),
       ),
+      enabled: widget.enabled,
     );
   }
 }
