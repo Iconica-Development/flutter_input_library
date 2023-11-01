@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onChanged: (value) {},
                   childToString: (s) =>
                       s != null ? weekDayDateFormat.format(s) : '',
-                  decoration: ScrollPickerDecoration(),
+                  decoration: const ScrollPickerDecoration(),
                 ),
                 const Text('FlutterFormInputScrollPicker: Months'),
                 const SizedBox(
@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onChanged: (value) {},
                   childToString: (s) =>
                       s != null ? monthDateFormat.format(s) : '',
-                  decoration: ScrollPickerDecoration(),
+                  decoration: const ScrollPickerDecoration(),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   values: years,
                   onChanged: (value) {},
                   childToString: (s) => s?.year.toString() ?? '',
-                  decoration: ScrollPickerDecoration(),
+                  decoration: const ScrollPickerDecoration(),
                 ),
               ],
             ),
