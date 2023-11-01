@@ -31,12 +31,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var weekDayDateFormat = DateFormat('EEEE');
+  var monthDateFormat = DateFormat('MMMM');
+
   var formKey = GlobalKey<FormState>();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  var weekDays = TypeUtils().createWeekDays(WeekDay.monday, WeekDay.sunday);
+  var dates =
+      TypeUtils().createMonthList(Month.january, Month.december, year: 2023);
+  var years = TypeUtils().createYearList(2000, 2023);
 
   @override
   Widget build(BuildContext context) {
@@ -138,6 +141,42 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 Container(height: 50),
+                const Text('FlutterFormInputScrollPicker: Weekdays'),
+                const SizedBox(
+                  height: 8,
+                ),
+                FlutterFormInputScrollPicker(
+                  values: weekDays,
+                  onChanged: (value) {},
+                  childToString: (s) =>
+                      s != null ? weekDayDateFormat.format(s) : '',
+                  decoration: const ScrollPickerDecoration(),
+                ),
+                const Text('FlutterFormInputScrollPicker: Months'),
+                const SizedBox(
+                  height: 8,
+                ),
+                FlutterFormInputScrollPicker(
+                  values: dates,
+                  onChanged: (value) {},
+                  childToString: (s) =>
+                      s != null ? monthDateFormat.format(s) : '',
+                  decoration: const ScrollPickerDecoration(),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Divider(),
+                ),
+                const Text('FlutterFormInputScrollPicker: Years'),
+                const SizedBox(
+                  height: 8,
+                ),
+                FlutterFormInputScrollPicker(
+                  values: years,
+                  onChanged: (value) {},
+                  childToString: (s) => s?.year.toString() ?? '',
+                  decoration: const ScrollPickerDecoration(),
+                ),
               ],
             ),
           ),
