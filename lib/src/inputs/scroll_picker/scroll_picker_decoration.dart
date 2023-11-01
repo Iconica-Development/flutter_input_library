@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class ScrollPickerDecoration {
-  ScrollPickerDecoration({
+  const ScrollPickerDecoration({
     this.scrollItemBuilder,
     this.highlightWidget,
     this.scrollItemTextStyle,

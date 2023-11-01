@@ -11,8 +11,8 @@ class ScrollPicker extends StatefulWidget {
     required this.onChanged,
     required this.decoration,
     this.initialIndex,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<String> list;
   final void Function(int index) onChanged;
