@@ -66,6 +66,13 @@ class _ScrollPickerState extends State<ScrollPicker> {
   }
 
   @override
+  void dispose() {
+    scrollController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
