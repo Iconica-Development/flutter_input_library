@@ -5,3 +5,4 @@ export 'text/plain_text.dart';
 export 'slider/slider.dart';
 export 'switch/switch.dart';
 export 'date_picker/date_picker.dart';
+export 'scroll_picker/scroll_picker.dart';

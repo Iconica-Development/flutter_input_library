@@ -41,3 +41,6 @@
 ## 2.4.0
 * The ability to disable the onTap paramater of the DatePicker
 * FlutterFormInputDateTime now also had the enabled parameter to provide to DateTimeInputField
+
+## 2.5.0
+* Addition of the ScrollPicker input field.
