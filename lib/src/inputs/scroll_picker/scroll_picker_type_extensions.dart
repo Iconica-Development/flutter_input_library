@@ -46,14 +46,15 @@ class TypeUtils {
   }
 
   /// Creates list of Datetime with the months from start to end.
-  List<DateTime> createMonthList(Month start, Month end, int year) {
+  List<DateTime> createMonthList(Month start, Month end, {int? year}) {
     if (start.index > end.index) {
       throw ArgumentError('Start month must be before or equal to end month.');
     }
 
     List<DateTime> result = [];
     for (int i = start.index; i <= end.index; i++) {
-      result.add(DateTime(year, Month.values[i].index + 1, 1));
+      result.add(
+          DateTime(year ?? DateTime.now().year, Month.values[i].index + 1, 1));
     }
 
     return result;
