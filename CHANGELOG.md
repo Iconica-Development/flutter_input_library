@@ -44,3 +44,7 @@
 
 ## 2.5.0
 * Addition of the ScrollPicker input field.
+
+## 2.5.1
+* Addition of `formatInputs` parameter to `FlutterFormInputPlainText` widget.
+* Addition of `formatInputs` parameter to `FlutterFormInputPassword` widget.

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FlutterFormInputPlainText extends StatelessWidget {
   const FlutterFormInputPlainText({
@@ -22,6 +23,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.style,
+    this.formatInputs,
     this.enabled = true,
   }) : super(
           key: key,
@@ -42,6 +44,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final TextStyle? style;
+  final List<TextInputFormatter>? formatInputs;
   final bool enabled;
 
   @override
@@ -53,6 +56,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
 
     return TextFormField(
       style: style,
+      inputFormatters: formatInputs,
       scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
       initialValue: initialValue,
       focusNode: focusNode,

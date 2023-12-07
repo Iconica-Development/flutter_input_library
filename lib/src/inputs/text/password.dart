@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// Generates a [TextFormField] for passwords. It requires a [FlutterFormInputController]
 /// as the [controller] parameter and an optional [Widget] as [label]
@@ -10,6 +11,7 @@ class FlutterFormInputPassword extends StatefulWidget {
   final Widget? label;
   final FocusNode? focusNode;
   final String? initialValue;
+  final List<TextInputFormatter>? inputFormatters;
   final Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final Function(String?)? onChanged;
@@ -21,6 +23,7 @@ class FlutterFormInputPassword extends StatefulWidget {
     this.label,
     this.focusNode,
     this.initialValue,
+    this.inputFormatters,
     this.onSaved,
     this.validator,
     this.onChanged,
@@ -39,6 +42,7 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
   Widget build(BuildContext context) {
     return TextFormField(
       initialValue: widget.initialValue,
+      inputFormatters: widget.inputFormatters,
       obscureText: obscured,
       focusNode: widget.focusNode,
       onSaved: (value) => widget.onSaved?.call(value),
