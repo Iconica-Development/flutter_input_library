@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 class FlutterFormInputPassword extends StatefulWidget {
   final Widget? label;
   final FocusNode? focusNode;
+  final TextStyle? style;
   final String? initialValue;
   final List<TextInputFormatter>? inputFormatters;
   final Function(String?)? onSaved;
@@ -22,6 +23,7 @@ class FlutterFormInputPassword extends StatefulWidget {
     Key? key,
     this.label,
     this.focusNode,
+    this.style,
     this.initialValue,
     this.inputFormatters,
     this.onSaved,
@@ -41,6 +43,7 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: widget.style,
       initialValue: widget.initialValue,
       inputFormatters: widget.inputFormatters,
       obscureText: obscured,
