@@ -48,3 +48,6 @@
 ## 2.5.1
 * Addition of `formatInputs` parameter to `FlutterFormInputPlainText` widget.
 * Addition of `formatInputs` parameter to `FlutterFormInputPassword` widget.
+
+## 2.5.2
+* Addition of `style` parameter to `FlutterFormInputPassword` widget.
