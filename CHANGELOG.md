@@ -51,3 +51,6 @@
 
 ## 2.5.2
 * Addition of `style` parameter to `FlutterFormInputPassword` widget.
+
+## 2.6.0
+* Addition of the `textCapitalization` parameter to `FlutterFormInputPlainText` and `FlutterFormInputMultiLine`.
