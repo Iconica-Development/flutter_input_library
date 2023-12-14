@@ -25,6 +25,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.style,
     this.formatInputs,
     this.enabled = true,
+    this.textCapitalization = TextCapitalization.none,
   }) : super(
           key: key,
         );
@@ -46,6 +47,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   final TextStyle? style;
   final List<TextInputFormatter>? formatInputs;
   final bool enabled;
+  final TextCapitalization textCapitalization;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +73,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
       maxLength: maxLength,
       keyboardType: keyboardType,
       enabled: enabled,
+      textCapitalization: textCapitalization,
     );
   }
 }
@@ -91,6 +94,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.onFieldSubmitted,
+    this.textCapitalization = TextCapitalization.sentences,
   }) : super(key: key);
 
   final Widget? label;
@@ -107,6 +111,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final String? Function(String?)? validator;
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
+  final TextCapitalization textCapitalization;
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +146,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
                   filled: true,
                 ),
             enabled: enabled,
+            textCapitalization: textCapitalization,
           ),
         ),
       ],
