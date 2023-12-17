@@ -6,6 +6,8 @@ Input library for Flutter to make creating form inputs a little easier.
 
 ![Input GIF](flutter_input_library.gif)
 
+Figma Design that defines this component (only accessible for Iconica developers): https://www.figma.com/file/4WkjwynOz5wFeFBRqTHPeP/Iconica-Design-System?type=design&node-id=357%3A3360&mode=design&t=XulkAJNPQ32ARxWh-1
+
 ## Setup
 
 To use this package, add `flutter_input_library` as a dependency in your pubspec.yaml file.
