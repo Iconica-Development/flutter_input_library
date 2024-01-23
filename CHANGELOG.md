@@ -54,3 +54,6 @@
 
 ## 2.6.0
 * Addition of the `textCapitalization` parameter to `FlutterFormInputPlainText` and `FlutterFormInputMultiLine`.
+
+## 2.6.1
+* Addition of 'obscureText' parameter to 'FlutterFormInputPlainText'

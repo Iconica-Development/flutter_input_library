@@ -26,6 +26,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.formatInputs,
     this.enabled = true,
     this.textCapitalization = TextCapitalization.none,
+    this.obscureText = false,
   }) : super(
           key: key,
         );
@@ -48,6 +49,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   final List<TextInputFormatter>? formatInputs;
   final bool enabled;
   final TextCapitalization textCapitalization;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +76,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
       keyboardType: keyboardType,
       enabled: enabled,
       textCapitalization: textCapitalization,
+      obscureText: obscureText,
     );
   }
 }
