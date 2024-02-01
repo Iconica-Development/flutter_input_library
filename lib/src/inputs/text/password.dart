@@ -18,6 +18,7 @@ class FlutterFormInputPassword extends StatefulWidget {
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final bool enabled;
+  final InputDecoration? decoration;
 
   const FlutterFormInputPassword({
     Key? key,
@@ -31,6 +32,7 @@ class FlutterFormInputPassword extends StatefulWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.enabled = true,
+    this.decoration,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,18 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
 
   @override
   Widget build(BuildContext context) {
+    var suffixIcon = IconButton(
+      onPressed: () {
+        setState(() {
+          obscured = !obscured;
+        });
+      },
+      icon: Icon(obscured ? Icons.visibility_off : Icons.visibility),
+    );
+
+    var decoration = widget.decoration?.copyWith(suffixIcon: suffixIcon) ??
+        InputDecoration(suffixIcon: suffixIcon);
+
     return TextFormField(
       style: widget.style,
       initialValue: widget.initialValue,
@@ -52,17 +66,7 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
       validator: (value) => widget.validator?.call(value),
       onChanged: (value) => widget.onChanged?.call(value),
       onFieldSubmitted: (value) => widget.onFieldSubmitted?.call(value),
-      decoration: InputDecoration(
-        label: widget.label ?? const Text("Password"),
-        suffixIcon: IconButton(
-          onPressed: () {
-            setState(() {
-              obscured = !obscured;
-            });
-          },
-          icon: Icon(obscured ? Icons.visibility_off : Icons.visibility),
-        ),
-      ),
+      decoration: decoration,
       enabled: widget.enabled,
     );
   }
