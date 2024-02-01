@@ -57,3 +57,6 @@
 
 ## 2.6.1
 * Addition of 'obscureText' parameter to 'FlutterFormInputPlainText'
+
+## 2.7.0
+* Addition of 'decoration' parameter to 'FlutterFormInputPassword'
