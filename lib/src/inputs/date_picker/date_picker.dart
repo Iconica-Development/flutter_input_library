@@ -15,13 +15,13 @@ enum FlutterFormDateTimeType {
 
 class FlutterFormInputDateTime extends StatelessWidget {
   const FlutterFormInputDateTime({
-    this.decoration,
-    this.style,
-    Key? key,
-    this.label,
-    this.showIcon = true,
     required this.inputType,
     required this.dateFormat,
+    this.decoration,
+    this.style,
+    super.key,
+    this.label,
+    this.showIcon = true,
     this.firstDate,
     this.lastDate,
     this.initialDate,
@@ -36,9 +36,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
     this.timePickerEntryMode = TimePickerEntryMode.dial,
     this.enabled = true,
     this.onTapEnabled = true,
-  }) : super(
-          key: key,
-        );
+  });
   final TextStyle? style;
   final InputDecoration? decoration;
   final Widget? label;
@@ -61,28 +59,26 @@ class FlutterFormInputDateTime extends StatelessWidget {
   final bool onTapEnabled;
 
   @override
-  Widget build(BuildContext context) {
-    return DateTimeInputField(
-      style: style,
-      decoration: decoration,
-      autovalidateMode: autovalidateMode,
-      validator: validator,
-      label: label,
-      icon: icon,
-      firstDate: firstDate,
-      lastDate: lastDate,
-      inputType: inputType,
-      dateFormat: dateFormat,
-      initialDate: initialDate,
-      initialDateTimeRange: initialDateTimeRange,
-      initialTime: initialTime,
-      initialValue: initialValue,
-      onChanged: (value) => onChanged?.call(value),
-      onSaved: (value) => onSaved?.call(value),
-      showIcon: showIcon,
-      timePickerEntryMode: timePickerEntryMode,
-      enabled: enabled,
-      onTapEnabled: onTapEnabled,
-    );
-  }
+  Widget build(BuildContext context) => DateTimeInputField(
+        style: style,
+        decoration: decoration,
+        autovalidateMode: autovalidateMode,
+        validator: validator,
+        label: label,
+        icon: icon,
+        firstDate: firstDate,
+        lastDate: lastDate,
+        inputType: inputType,
+        dateFormat: dateFormat,
+        initialDate: initialDate,
+        initialDateTimeRange: initialDateTimeRange,
+        initialTime: initialTime,
+        initialValue: initialValue,
+        onChanged: (value) => onChanged?.call(value),
+        onSaved: (value) => onSaved?.call(value),
+        showIcon: showIcon,
+        timePickerEntryMode: timePickerEntryMode,
+        enabled: enabled,
+        onTapEnabled: onTapEnabled,
+      );
 }

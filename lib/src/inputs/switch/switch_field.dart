@@ -6,32 +6,27 @@ import 'package:flutter/material.dart';
 
 class SwitchFormField extends FormField<bool> {
   SwitchFormField({
-    Key? key,
-    required FormFieldSetter<bool> onSaved,
-    required FormFieldValidator<bool> validator,
+    required FormFieldSetter<bool> super.onSaved,
+    required FormFieldValidator<bool> super.validator,
+    super.key,
     FocusNode? focusNode,
-    bool initialValue = false,
-    bool autovalidate = false,
+    bool super.initialValue = false,
+    // ignore: avoid_positional_boolean_parameters
     void Function(bool? value)? onChanged,
   }) : super(
-            key: key,
-            onSaved: onSaved,
-            validator: validator,
+          builder: (FormFieldState<bool> state) => SwitchWidget(
             initialValue: initialValue,
-            builder: (FormFieldState<bool> state) {
-              return SwitchWidget(
-                initialValue: initialValue,
-                state: state,
-                focusNode: focusNode,
-                onChanged: onChanged,
-              );
-            });
+            state: state,
+            focusNode: focusNode,
+            onChanged: onChanged,
+          ),
+        );
 }
 
 class SwitchWidget extends StatefulWidget {
   const SwitchWidget({
-    this.initialValue = false,
     required this.state,
+    this.initialValue = false,
     this.onChanged,
     this.focusNode,
     super.key,
@@ -40,6 +35,7 @@ class SwitchWidget extends StatefulWidget {
   final bool initialValue;
   final FormFieldState<bool> state;
   final FocusNode? focusNode;
+  // ignore: avoid_positional_boolean_parameters
   final void Function(bool? value)? onChanged;
 
   @override
@@ -50,19 +46,17 @@ class _SwitchWidgetState extends State<SwitchWidget> {
   late bool value = widget.initialValue;
 
   @override
-  Widget build(BuildContext context) {
-    return Switch(
-      value: value,
-      focusNode: widget.focusNode,
-      onChanged: (bool value) {
-        widget.onChanged?.call(value);
+  Widget build(BuildContext context) => Switch(
+        value: value,
+        focusNode: widget.focusNode,
+        onChanged: (bool value) {
+          widget.onChanged?.call(value);
 
-        widget.state.didChange(value);
+          widget.state.didChange(value);
 
-        setState(() {
-          this.value = value;
-        });
-      },
-    );
-  }
+          setState(() {
+            this.value = value;
+          });
+        },
+      );
 }
