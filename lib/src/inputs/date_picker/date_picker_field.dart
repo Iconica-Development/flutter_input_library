@@ -10,16 +10,18 @@ import 'package:intl/intl.dart';
 
 class DateTimeInputField extends StatefulWidget {
   const DateTimeInputField({
-    this.decoration,
-    Key? key,
     required this.inputType,
     required this.autovalidateMode,
-    this.label,
-    this.showIcon = true,
-    this.icon,
     required this.dateFormat,
     required this.firstDate,
     required this.lastDate,
+    required this.timePickerEntryMode,
+    required this.style,
+    this.decoration,
+    super.key,
+    this.label,
+    this.showIcon = true,
+    this.icon,
     this.initialDate,
     this.initialTime,
     this.initialDateTimeRange,
@@ -27,13 +29,9 @@ class DateTimeInputField extends StatefulWidget {
     this.onChanged,
     this.onSaved,
     this.validator,
-    required this.timePickerEntryMode,
-    required this.style,
     this.enabled = true,
     this.onTapEnabled = true,
-  }) : super(
-          key: key,
-        );
+  });
   final TextStyle? style;
   final InputDecoration? decoration;
   final AutovalidateMode autovalidateMode;
@@ -93,12 +91,14 @@ class _DateInputFieldState extends State<DateTimeInputField> {
 
   @override
   Widget build(BuildContext context) {
-    Future<String> getInputFromUser(FlutterFormDateTimeType inputType,
-        [DateFormat? dateFormat]) async {
-      String userInput = '';
+    Future<String> getInputFromUser(
+      FlutterFormDateTimeType inputType, [
+      DateFormat? dateFormat,
+    ]) async {
+      var userInput = '';
       switch (inputType) {
         case FlutterFormDateTimeType.date:
-          DateTime? unformatted = await showDatePicker(
+          var unformatted = await showDatePicker(
             initialDate: initialDate,
             context: context,
             firstDate: firstDate,
@@ -112,7 +112,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           await getInputFromUser(FlutterFormDateTimeType.date)
               .then((value) async {
             if (value != '') {
-              String secondInput =
+              var secondInput =
                   await getInputFromUser(FlutterFormDateTimeType.time);
               if (secondInput != '') {
                 var date = widget.dateFormat.parse(value);
@@ -120,49 +120,51 @@ class _DateInputFieldState extends State<DateTimeInputField> {
                     ? dateFormat.parse('01 01 1970 $secondInput')
                     : DateFormat('dd MM yyyy HH:mm')
                         .parse('01 01 1970 $secondInput');
-                userInput = widget.dateFormat.format(DateTime(
-                  date.year,
-                  date.month,
-                  date.day,
-                  time.hour,
-                  time.minute,
-                ));
+                userInput = widget.dateFormat.format(
+                  DateTime(
+                    date.year,
+                    date.month,
+                    date.day,
+                    time.hour,
+                    time.minute,
+                  ),
+                );
               }
             }
           });
           break;
         case FlutterFormDateTimeType.range:
           if (context.mounted) {
-            userInput = (await showDateRangePicker(
-                        context: context,
-                        firstDate: firstDate,
-                        lastDate: lastDate,
-                        initialDateRange: initialDateRange)
-                    .then((value) {
-              return value != null
-                  ? '${widget.dateFormat.format(value.start)} - ${widget.dateFormat.format(value.end)}'
-                  : '';
-            }))
-                .toString();
+            userInput = await showDateRangePicker(
+              context: context,
+              firstDate: firstDate,
+              lastDate: lastDate,
+              initialDateRange: initialDateRange,
+            ).then(
+              (value) => value != null
+                  ? '${widget.dateFormat.format(value.start)} -'
+                      '${widget.dateFormat.format(value.end)}'
+                  : '',
+            );
           }
           break;
         case FlutterFormDateTimeType.time:
           if (context.mounted) {
             userInput = await showTimePicker(
               initialEntryMode: widget.timePickerEntryMode,
-              builder: (BuildContext context, Widget? child) {
-                return MediaQuery(
-                  data: MediaQuery.of(context)
-                      .copyWith(alwaysUse24HourFormat: true),
-                  child: child!,
-                );
-              },
+              builder: (BuildContext context, Widget? child) => MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(alwaysUse24HourFormat: true),
+                child: child!,
+              ),
               context: context,
               initialTime: initialTimeOfDay,
-            ).then((value) => value == null
-                ? ''
-                : MaterialLocalizations.of(context)
-                    .formatTimeOfDay(value, alwaysUse24HourFormat: true));
+            ).then(
+              (value) => value == null
+                  ? ''
+                  : MaterialLocalizations.of(context)
+                      .formatTimeOfDay(value, alwaysUse24HourFormat: true),
+            );
           }
       }
       return userInput;
@@ -178,7 +180,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       onSaved: (value) => widget.onSaved?.call(value),
       onTap: widget.onTapEnabled
           ? () async {
-              String userInput = await getInputFromUser(
+              var userInput = await getInputFromUser(
                 widget.inputType,
                 DateFormat('dd MM yyyy HH:mm'),
               );
@@ -194,7 +196,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           InputDecoration(
             suffixIcon: widget.showIcon ? Icon(widget.icon) : null,
             focusColor: Theme.of(context).primaryColor,
-            label: widget.label ?? const Text("Date"),
+            label: widget.label ?? const Text('Date'),
           ),
       enabled: widget.enabled,
     );

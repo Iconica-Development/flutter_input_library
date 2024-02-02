@@ -7,7 +7,7 @@ import 'package:flutter_input_library/src/inputs/slider/slider_field.dart';
 
 class FlutterFormInputSlider extends StatelessWidget {
   const FlutterFormInputSlider({
-    Key? key,
+    super.key,
     this.minValue = 0,
     this.maxValue = 100,
     this.onSaved,
@@ -15,10 +15,7 @@ class FlutterFormInputSlider extends StatelessWidget {
     this.initialValue,
     this.validator,
     this.focusNode,
-  })  : assert(minValue < maxValue),
-        super(
-          key: key,
-        );
+  }) : assert(minValue < maxValue, 'minValue must be less than maxValue');
 
   final int minValue;
   final int maxValue;
@@ -29,13 +26,11 @@ class FlutterFormInputSlider extends StatelessWidget {
   final FocusNode? focusNode;
 
   @override
-  Widget build(BuildContext context) {
-    return SliderFormField(
-      onSaved: (value) => onSaved?.call(value),
-      validator: (value) => validator?.call(value),
-      onChanged: (value) => onChanged?.call(value),
-      initialValue: initialValue ?? 0.5,
-      focusNode: focusNode,
-    );
-  }
+  Widget build(BuildContext context) => SliderFormField(
+        onSaved: (value) => onSaved?.call(value),
+        validator: (value) => validator?.call(value),
+        onChanged: (value) => onChanged?.call(value),
+        initialValue: initialValue ?? 0.5,
+        focusNode: focusNode,
+      );
 }

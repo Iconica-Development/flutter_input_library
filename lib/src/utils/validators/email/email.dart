@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-class EmailValidator {
+mixin EmailValidator {
   static bool isValid(String? email) {
     if (email == null) {
       return false;

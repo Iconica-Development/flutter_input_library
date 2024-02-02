@@ -4,20 +4,18 @@
 
 import 'package:flutter/material.dart';
 
-import 'carousel_form.dart';
+import 'package:flutter_input_library/src/inputs/carousel/carousel_form.dart';
 
 class FlutterFormInputCarousel extends StatelessWidget {
   const FlutterFormInputCarousel({
-    Key? key,
     required this.items,
+    super.key,
     this.height = 425,
     this.onSaved,
     this.onChanged,
     this.initialValue,
     this.validator,
-  }) : super(
-          key: key,
-        );
+  });
 
   final List<Widget> items;
   final double height;
@@ -27,14 +25,12 @@ class FlutterFormInputCarousel extends StatelessWidget {
   final int? initialValue;
 
   @override
-  Widget build(BuildContext context) {
-    return CarouselFormField(
-      onSaved: (value) => onSaved?.call(value),
-      validator: (value) => validator?.call(value),
-      onChanged: (value) => onChanged?.call(value),
-      initialValue: initialValue ?? 0,
-      items: items,
-      height: height,
-    );
-  }
+  Widget build(BuildContext context) => CarouselFormField(
+        onSaved: (value) => onSaved?.call(value),
+        validator: (value) => validator?.call(value),
+        onChanged: (value) => onChanged?.call(value),
+        initialValue: initialValue ?? 0,
+        items: items,
+        height: height,
+      );
 }

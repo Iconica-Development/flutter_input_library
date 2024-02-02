@@ -5,23 +5,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Generates a [TextFormField] for passwords. It requires a [FlutterFormInputController]
-/// as the [controller] parameter and an optional [Widget] as [label]
+/// Generates a [TextFormField] for passwords. It requires a 
+/// [FlutterFormInputController] as the [controller] parameter and an 
+/// optional [Widget] as [label]
 class FlutterFormInputPassword extends StatefulWidget {
-  final Widget? label;
-  final FocusNode? focusNode;
-  final TextStyle? style;
-  final String? initialValue;
-  final List<TextInputFormatter>? inputFormatters;
-  final Function(String?)? onSaved;
-  final String? Function(String?)? validator;
-  final Function(String?)? onChanged;
-  final Function(String?)? onFieldSubmitted;
-  final bool enabled;
-  final InputDecoration? decoration;
-
   const FlutterFormInputPassword({
-    Key? key,
+    super.key,
     this.label,
     this.focusNode,
     this.style,
@@ -33,7 +22,18 @@ class FlutterFormInputPassword extends StatefulWidget {
     this.onFieldSubmitted,
     this.enabled = true,
     this.decoration,
-  }) : super(key: key);
+  });
+  final Widget? label;
+  final FocusNode? focusNode;
+  final TextStyle? style;
+  final String? initialValue;
+  final List<TextInputFormatter>? inputFormatters;
+  final Function(String?)? onSaved;
+  final String? Function(String?)? validator;
+  final Function(String?)? onChanged;
+  final Function(String?)? onFieldSubmitted;
+  final bool enabled;
+  final InputDecoration? decoration;
 
   @override
   State<FlutterFormInputPassword> createState() => _PasswordTextFieldState();

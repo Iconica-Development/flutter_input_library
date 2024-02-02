@@ -60,3 +60,7 @@
 
 ## 2.7.0
 * Addition of 'decoration' parameter to 'FlutterFormInputPassword'
+
+## 2.7.1
+
+* Added Iconica CI and Iconica Linter
