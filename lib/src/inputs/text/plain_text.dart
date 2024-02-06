@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 
 class FlutterFormInputPlainText extends StatelessWidget {
   const FlutterFormInputPlainText({
-    Key? key,
+    super.key,
     this.label,
     this.focusNode,
     this.decoration,
@@ -27,9 +27,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.enabled = true,
     this.textCapitalization = TextCapitalization.none,
     this.obscureText = false,
-  }) : super(
-          key: key,
-        );
+  });
 
   final InputDecoration? decoration;
   final TextAlignVertical? textAlignVertical;
@@ -53,9 +51,9 @@ class FlutterFormInputPlainText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    InputDecoration inputDecoration = decoration ??
+    var inputDecoration = decoration ??
         InputDecoration(
-          label: label ?? const Text("Plain text"),
+          label: label ?? const Text('Plain text'),
         );
 
     return TextFormField(
@@ -83,7 +81,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
 
 class FlutterFormInputMultiLine extends StatelessWidget {
   const FlutterFormInputMultiLine({
-    Key? key,
+    super.key,
     this.label,
     this.focusNode,
     this.hint,
@@ -98,7 +96,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.textCapitalization = TextCapitalization.sentences,
-  }) : super(key: key);
+  });
 
   final Widget? label;
   final FocusNode? focusNode;
@@ -117,42 +115,40 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final TextCapitalization textCapitalization;
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: FlutterFormInputPlainText(
-            label: label,
-            textAlignVertical: TextAlignVertical.top,
-            expands: true,
-            maxLines: null,
-            focusNode: focusNode,
-            maxLength: maxCharacters,
-            initialValue: initialValue,
-            scrollPadding: scrollPadding,
-            keyboardType: keyboardType,
-            onSaved: onSaved,
-            validator: validator,
-            onChanged: onChanged,
-            onFieldSubmitted: onFieldSubmitted,
-            decoration: decoration ??
-                InputDecoration(
-                  hintText: hint,
-                  floatingLabelBehavior: FloatingLabelBehavior.never,
-                  isDense: true,
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF979797)),
+  Widget build(BuildContext context) => Column(
+        children: [
+          Expanded(
+            child: FlutterFormInputPlainText(
+              label: label,
+              textAlignVertical: TextAlignVertical.top,
+              expands: true,
+              maxLines: null,
+              focusNode: focusNode,
+              maxLength: maxCharacters,
+              initialValue: initialValue,
+              scrollPadding: scrollPadding,
+              keyboardType: keyboardType,
+              onSaved: onSaved,
+              validator: validator,
+              onChanged: onChanged,
+              onFieldSubmitted: onFieldSubmitted,
+              decoration: decoration ??
+                  InputDecoration(
+                    hintText: hint,
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    isDense: true,
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF979797)),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF979797)),
+                    ),
+                    filled: true,
                   ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF979797)),
-                  ),
-                  filled: true,
-                ),
-            enabled: enabled,
-            textCapitalization: textCapitalization,
+              enabled: enabled,
+              textCapitalization: textCapitalization,
+            ),
           ),
-        ),
-      ],
-    );
-  }
+        ],
+      );
 }

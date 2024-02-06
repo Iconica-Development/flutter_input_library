@@ -58,7 +58,8 @@ class _ScrollPickerState extends State<ScrollPicker> {
 
       if (newIndex != selectedIndex) {
         widget.onChanged.call(
-            (scrollController.offset / widget.decoration.itemHeight).round());
+          (scrollController.offset / widget.decoration.itemHeight).round(),
+        );
 
         selectedIndex = newIndex;
       }
@@ -73,54 +74,52 @@ class _ScrollPickerState extends State<ScrollPicker> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: Center(
-            child: widget.decoration.highlightWidget ??
-                Container(
-                  height: widget.decoration.itemHeight,
-                  decoration: ShapeDecoration(
-                    color: Colors.grey.shade300,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
+  Widget build(BuildContext context) => Stack(
+        children: [
+          Positioned.fill(
+            child: Center(
+              child: widget.decoration.highlightWidget ??
+                  Container(
+                    height: widget.decoration.itemHeight,
+                    decoration: ShapeDecoration(
+                      color: Colors.grey.shade300,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                     ),
                   ),
-                ),
-          ),
-        ),
-        SizedBox(
-          height: pickerHeight,
-          child: ListWheelScrollView.useDelegate(
-            physics: const FixedExtentScrollPhysics(),
-            diameterRatio: widget.decoration.diameterRatio,
-            itemExtent: widget.decoration.itemHeight,
-            controller: scrollController,
-            perspective: widget.decoration.perspective,
-            overAndUnderCenterOpacity:
-                widget.decoration.overAndUnderCenterOpacity,
-            childDelegate: ListWheelChildBuilderDelegate(
-              builder: (context, index) =>
-                  widget.decoration.scrollItemBuilder
-                      ?.call(context, index, widget.list[index]) ??
-                  Center(
-                    child: Text(
-                      widget.list[index],
-                      style: widget.decoration.scrollItemTextStyle,
-                    ),
-                  ),
-              childCount: widget.list.length,
             ),
-            offAxisFraction: widget.decoration.offAxisFraction,
-            useMagnifier: widget.decoration.useMagnifier,
-            magnification: widget.decoration.magnification,
-            squeeze: widget.decoration.squeeze,
-            renderChildrenOutsideViewport:
-                widget.decoration.renderChildrenOutsideViewport,
           ),
-        ),
-      ],
-    );
-  }
+          SizedBox(
+            height: pickerHeight,
+            child: ListWheelScrollView.useDelegate(
+              physics: const FixedExtentScrollPhysics(),
+              diameterRatio: widget.decoration.diameterRatio,
+              itemExtent: widget.decoration.itemHeight,
+              controller: scrollController,
+              perspective: widget.decoration.perspective,
+              overAndUnderCenterOpacity:
+                  widget.decoration.overAndUnderCenterOpacity,
+              childDelegate: ListWheelChildBuilderDelegate(
+                builder: (context, index) =>
+                    widget.decoration.scrollItemBuilder
+                        ?.call(context, index, widget.list[index]) ??
+                    Center(
+                      child: Text(
+                        widget.list[index],
+                        style: widget.decoration.scrollItemTextStyle,
+                      ),
+                    ),
+                childCount: widget.list.length,
+              ),
+              offAxisFraction: widget.decoration.offAxisFraction,
+              useMagnifier: widget.decoration.useMagnifier,
+              magnification: widget.decoration.magnification,
+              squeeze: widget.decoration.squeeze,
+              renderChildrenOutsideViewport:
+                  widget.decoration.renderChildrenOutsideViewport,
+            ),
+          ),
+        ],
+      );
 }

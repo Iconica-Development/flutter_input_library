@@ -2,11 +2,26 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_input_library/src/inputs/bool/bool_field.dart';
 
 class FlutterFormInputBool extends StatelessWidget {
+  const FlutterFormInputBool({
+    super.key,
+    this.label,
+    this.onSaved,
+    this.validator,
+    this.onChanged,
+    this.focusNode,
+    this.initialValue = false,
+    this.widgetType = BoolWidgetType.switchWidget,
+    this.leftWidget,
+    this.rightWidget,
+  });
+
   final Widget? label;
   final Function(bool?)? onSaved;
   final String? Function(bool?)? validator;
@@ -17,34 +32,17 @@ class FlutterFormInputBool extends StatelessWidget {
   final Widget? leftWidget;
   final Widget? rightWidget;
 
-  const FlutterFormInputBool({
-    Key? key,
-    this.label,
-    this.onSaved,
-    this.validator,
-    this.onChanged,
-    this.focusNode,
-    this.initialValue = false,
-    this.widgetType = BoolWidgetType.switchWidget,
-    this.leftWidget,
-    this.rightWidget,
-  }) : super(
-          key: key,
-        );
-
   @override
-  Widget build(BuildContext context) {
-    return BoolFormField(
-      onSaved: (value) => onSaved?.call(value),
-      onChanged: (value) => onChanged?.call(value),
-      validator: (value) => validator?.call(value),
-      initialValue: initialValue ?? false,
-      focusNode: focusNode,
-      widgetType: widgetType,
-      leftWidget: leftWidget,
-      rightWidget: rightWidget,
-    );
-  }
+  Widget build(BuildContext context) => BoolFormField(
+        onSaved: (value) => onSaved?.call(value),
+        onChanged: (value) => onChanged?.call(value),
+        validator: (value) => validator?.call(value),
+        initialValue: initialValue ?? false,
+        focusNode: focusNode,
+        widgetType: widgetType,
+        leftWidget: leftWidget,
+        rightWidget: rightWidget,
+      );
 }
 
 enum BoolWidgetType {

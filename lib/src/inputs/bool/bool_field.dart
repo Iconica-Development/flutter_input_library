@@ -2,44 +2,40 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter/material.dart';
 import 'package:flutter_input_library/flutter_input_library.dart';
 
 class BoolFormField extends FormField<bool> {
   BoolFormField({
-    Key? key,
-    required FormFieldSetter<bool> onSaved,
-    required FormFieldValidator<bool> validator,
+    required FormFieldSetter<bool> super.onSaved,
+    required FormFieldValidator<bool> super.validator,
+    super.key,
     FocusNode? focusNode,
-    bool initialValue = false,
-    bool autovalidate = false,
+    bool super.initialValue = false,
     void Function(bool? value)? onChanged,
     BoolWidgetType widgetType = BoolWidgetType.switchWidget,
     Widget? leftWidget,
     Widget? rightWidget,
   }) : super(
-            key: key,
-            onSaved: onSaved,
-            validator: validator,
+          builder: (FormFieldState<bool> state) => BoolWidget(
             initialValue: initialValue,
-            builder: (FormFieldState<bool> state) {
-              return BoolWidget(
-                initialValue: initialValue,
-                state: state,
-                focusNode: focusNode,
-                onChanged: onChanged,
-                widgetType: widgetType,
-                errorText: state.errorText,
-                leftWidget: leftWidget,
-                rightWidget: rightWidget,
-              );
-            });
+            state: state,
+            focusNode: focusNode,
+            onChanged: onChanged,
+            widgetType: widgetType,
+            errorText: state.errorText,
+            leftWidget: leftWidget,
+            rightWidget: rightWidget,
+          ),
+        );
 }
 
 class BoolWidget extends StatefulWidget {
   const BoolWidget({
-    this.initialValue = false,
     required this.state,
+    this.initialValue = false,
     this.onChanged,
     this.focusNode,
     this.widgetType = BoolWidgetType.switchWidget,

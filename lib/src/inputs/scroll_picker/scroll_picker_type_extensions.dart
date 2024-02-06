@@ -28,7 +28,8 @@ enum Month {
 }
 
 class TypeUtils {
-  /// Creates list of Datetime with days. These fall on the respective week days from start to end.
+  /// Creates list of Datetime with days. These fall on the respective week
+  /// days from start to end.
   List<DateTime> createWeekDays(
     WeekDay start,
     WeekDay end,
@@ -37,8 +38,8 @@ class TypeUtils {
       throw ArgumentError('Start month must be before or equal to end month.');
     }
 
-    List<DateTime> result = [];
-    for (int i = start.index; i <= end.index; i++) {
+    var result = <DateTime>[];
+    for (var i = start.index; i <= end.index; i++) {
       result.add(DateTime(2024, 1, WeekDay.values[i].index + 1));
     }
 
@@ -51,10 +52,11 @@ class TypeUtils {
       throw ArgumentError('Start month must be before or equal to end month.');
     }
 
-    List<DateTime> result = [];
-    for (int i = start.index; i <= end.index; i++) {
+    var result = <DateTime>[];
+    for (var i = start.index; i <= end.index; i++) {
       result.add(
-          DateTime(year ?? DateTime.now().year, Month.values[i].index + 1, 1));
+        DateTime(year ?? DateTime.now().year, Month.values[i].index + 1, 1),
+      );
     }
 
     return result;
@@ -66,8 +68,8 @@ class TypeUtils {
       throw ArgumentError('Start year must be before or equal to year month.');
     }
 
-    List<DateTime> result = [];
-    for (int i = 0; i <= end - start; i++) {
+    var result = <DateTime>[];
+    for (var i = 0; i <= end - start; i++) {
       result.add(DateTime(start + i, 1, 1));
     }
 

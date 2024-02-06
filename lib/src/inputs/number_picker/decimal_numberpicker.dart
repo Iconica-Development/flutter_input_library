@@ -6,9 +6,30 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'number_picker_field.dart';
+import 'package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart';
 
 class DecimalNumberPicker extends StatelessWidget {
+  const DecimalNumberPicker({
+    required this.minValue,
+    required this.maxValue,
+    required this.value,
+    required this.onChanged,
+    super.key,
+    this.itemCount = 3,
+    this.itemHeight = 50,
+    this.itemWidth = 100,
+    this.axis = Axis.vertical,
+    this.textStyle,
+    this.selectedTextStyle,
+    this.haptics = false,
+    this.decimalPlaces = 1,
+    this.integerTextMapper,
+    this.decimalTextMapper,
+    this.integerZeroPad = false,
+    this.integerDecoration,
+    this.decimalDecoration,
+  })  : assert(minValue <= value, 'value must be greater than minValue'),
+        assert(value <= maxValue, 'value must be less than maxValue');
   final int minValue;
   final int maxValue;
   final double value;
@@ -24,47 +45,26 @@ class DecimalNumberPicker extends StatelessWidget {
   final TextMapper? decimalTextMapper;
   final bool integerZeroPad;
 
-  /// Decoration to apply to central box where the selected integer value is placed
+  /// Decoration to apply to central box where the selected integer value
+  /// is placed
   final Decoration? integerDecoration;
 
-  /// Decoration to apply to central box where the selected decimal value is placed
+  /// Decoration to apply to central box where the selected decimal value
+  /// is placed
   final Decoration? decimalDecoration;
 
   /// Inidcates how many decimal places to show
   /// e.g. 0=>[1,2,3...], 1=>[1.0, 1.1, 1.2...]  2=>[1.00, 1.01, 1.02...]
   final int decimalPlaces;
 
-  const DecimalNumberPicker({
-    Key? key,
-    required this.minValue,
-    required this.maxValue,
-    required this.value,
-    required this.onChanged,
-    this.itemCount = 3,
-    this.itemHeight = 50,
-    this.itemWidth = 100,
-    this.axis = Axis.vertical,
-    this.textStyle,
-    this.selectedTextStyle,
-    this.haptics = false,
-    this.decimalPlaces = 1,
-    this.integerTextMapper,
-    this.decimalTextMapper,
-    this.integerZeroPad = false,
-    this.integerDecoration,
-    this.decimalDecoration,
-  })  : assert(minValue <= value),
-        assert(value <= maxValue),
-        super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final isMax = value.floor() == maxValue;
-    final decimalValue = isMax
+    var isMax = value.floor() == maxValue;
+    var decimalValue = isMax
         ? 0
         : ((value - value.floorToDouble()) * math.pow(10, decimalPlaces))
             .round();
-    final doubleMaxValue = isMax ? 0 : math.pow(10, decimalPlaces).toInt() - 1;
+    var doubleMaxValue = isMax ? 0 : math.pow(10, decimalPlaces).toInt() - 1;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -102,15 +102,15 @@ class DecimalNumberPicker extends StatelessWidget {
   }
 
   void _onIntChanged(int intValue) {
-    final newValue =
-        (value - value.floor() + intValue).clamp(minValue, maxValue);
+    var newValue = (value - value.floor() + intValue).clamp(minValue, maxValue);
     onChanged(newValue.toDouble());
   }
 
   void _onDoubleChanged(int doubleValue) {
-    final decimalPart = double.parse(
-        (doubleValue * math.pow(10, -decimalPlaces))
-            .toStringAsFixed(decimalPlaces));
+    var decimalPart = double.parse(
+      (doubleValue * math.pow(10, -decimalPlaces))
+          .toStringAsFixed(decimalPlaces),
+    );
     onChanged(value.floor() + decimalPart);
   }
 }

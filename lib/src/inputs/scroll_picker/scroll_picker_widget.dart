@@ -14,8 +14,8 @@ class FlutterFormInputScrollPicker<T> extends StatelessWidget {
     this.onSaved,
     this.onChanged,
     this.initialIndex = 0,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   /// Values that will be shown in the scroll picker.
   final List<T> values;
@@ -36,42 +36,36 @@ class FlutterFormInputScrollPicker<T> extends StatelessWidget {
   final ScrollPickerDecoration decoration;
 
   @override
-  Widget build(BuildContext context) {
-    return ScrollPickerFormField<T>(
-      values: values,
-      initialIndex: initialIndex,
-      decoration: decoration,
-      childToString: childToString,
-      onSaved: (value) => onSaved?.call(value),
-      onChanged: (value) => onChanged?.call(value),
-    );
-  }
+  Widget build(BuildContext context) => ScrollPickerFormField<T>(
+        values: values,
+        initialIndex: initialIndex,
+        decoration: decoration,
+        childToString: childToString,
+        onSaved: (value) => onSaved?.call(value),
+        onChanged: (value) => onChanged?.call(value),
+      );
 }
 
 class ScrollPickerFormField<T> extends FormField<T> {
   ScrollPickerFormField({
     required List<T> values,
-    int? initialIndex,
     required ScrollPickerDecoration decoration,
-    required FormFieldSetter<T> onSaved,
-    void Function(T value)? onChanged,
+    required FormFieldSetter<T> super.onSaved,
     required String Function(T) childToString,
-    Key? key,
+    int? initialIndex,
+    void Function(T value)? onChanged,
+    super.key,
   }) : super(
-          key: key,
-          onSaved: onSaved,
           initialValue: values[initialIndex ?? (values.length / 2).floor()],
-          builder: (FormFieldState<T> state) {
-            return ScrollPicker(
-              list: values.map((e) => childToString(e)).toList(),
-              decoration: decoration,
-              initialIndex: initialIndex,
-              onChanged: (int index) {
-                onChanged?.call(values[index]);
+          builder: (FormFieldState<T> state) => ScrollPicker(
+            list: values.map((e) => childToString(e)).toList(),
+            decoration: decoration,
+            initialIndex: initialIndex,
+            onChanged: (int index) {
+              onChanged?.call(values[index]);
 
-                state.didChange(values[index]);
-              },
-            );
-          },
+              state.didChange(values[index]);
+            },
+          ),
         );
 }

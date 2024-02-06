@@ -4,22 +4,18 @@
 
 import 'package:flutter/material.dart';
 
-import 'number_picker_field.dart';
+import 'package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart';
 
 class FlutterFormInputNumberPicker extends StatelessWidget {
   const FlutterFormInputNumberPicker({
-    Key? key,
-    Widget? label,
+    super.key,
     this.minValue = 0,
     this.maxValue = 100,
     this.onSaved,
     this.onChanged,
     this.initialValue,
     this.validator,
-  })  : assert(minValue < maxValue),
-        super(
-          key: key,
-        );
+  }) : assert(minValue < maxValue, 'minValue must be less than maxValue');
 
   final int minValue;
   final int maxValue;
@@ -29,45 +25,37 @@ class FlutterFormInputNumberPicker extends StatelessWidget {
   final Function(int?)? onChanged;
 
   @override
-  Widget build(BuildContext context) {
-    return NumberPickerFormField(
-      minValue: minValue,
-      maxValue: maxValue,
-      onSaved: (value) => onSaved?.call(value),
-      validator: (value) => validator?.call(value),
-      onChanged: (value) => onChanged?.call(value),
-      initialValue: initialValue ?? 0,
-    );
-  }
+  Widget build(BuildContext context) => NumberPickerFormField(
+        minValue: minValue,
+        maxValue: maxValue,
+        onSaved: (value) => onSaved?.call(value),
+        validator: (value) => validator?.call(value),
+        onChanged: (value) => onChanged?.call(value),
+        initialValue: initialValue ?? 0,
+      );
 }
 
 class NumberPickerFormField extends FormField<int> {
   NumberPickerFormField({
-    Key? key,
-    required FormFieldSetter<int> onSaved,
-    required FormFieldValidator<int> validator,
+    required FormFieldSetter<int> super.onSaved,
+    required FormFieldValidator<int> super.validator,
+    super.key,
     void Function(int value)? onChanged,
-    int initialValue = 0,
-    bool autovalidate = false,
+    int super.initialValue = 0,
     int minValue = 0,
     int maxValue = 100,
   }) : super(
-            key: key,
-            onSaved: onSaved,
-            validator: validator,
-            initialValue: initialValue,
-            builder: (FormFieldState<int> state) {
-              return NumberPicker(
-                minValue: minValue,
-                maxValue: maxValue,
-                value: initialValue,
-                onChanged: (int value) {
-                  onChanged?.call(value);
+          builder: (FormFieldState<int> state) => NumberPicker(
+            minValue: minValue,
+            maxValue: maxValue,
+            value: initialValue,
+            onChanged: (int value) {
+              onChanged?.call(value);
 
-                  state.didChange(value);
-                },
-                itemHeight: 35,
-                itemCount: 5,
-              );
-            });
+              state.didChange(value);
+            },
+            itemHeight: 35,
+            itemCount: 5,
+          ),
+        );
 }
