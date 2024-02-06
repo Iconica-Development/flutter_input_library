@@ -62,5 +62,7 @@
 * Addition of 'decoration' parameter to 'FlutterFormInputPassword'
 
 ## 2.7.1
-
 * Added Iconica CI and Iconica Linter
+
+## 3.0.0
+* Updated the FlutterFormInputSwitch to FlutterFormInputBool. This now includes a parameter to either show a checkbox or switch

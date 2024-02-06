@@ -54,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 Container(height: 10),
-                const Text('FlutterFormInputSwitch'),
-                FlutterFormInputSwitch(
+                const Text('FlutterFormInputBool'),
+                FlutterFormInputBool(
                   initialValue: true,
                   onChanged: (v) {
                     debugPrint('Switch changed to $v');
