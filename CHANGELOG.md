@@ -60,3 +60,6 @@
 
 ## 2.7.0
 * Addition of 'decoration' parameter to 'FlutterFormInputPassword'
+
+## 3.0.0
+* Updated the FlutterFormInputSwitch to FlutterFormInputBool. This now includes a parameter to either show a checkbox or switch
