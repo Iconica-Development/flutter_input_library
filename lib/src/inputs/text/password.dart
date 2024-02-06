@@ -5,8 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Generates a [TextFormField] for passwords. It requires a 
-/// [FlutterFormInputController] as the [controller] parameter and an 
+/// Generates a [TextFormField] for passwords. It requires a
+/// [FlutterFormInputController] as the [controller] parameter and an
 /// optional [Widget] as [label]
 class FlutterFormInputPassword extends StatefulWidget {
   const FlutterFormInputPassword({

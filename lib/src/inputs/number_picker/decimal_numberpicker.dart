@@ -45,11 +45,11 @@ class DecimalNumberPicker extends StatelessWidget {
   final TextMapper? decimalTextMapper;
   final bool integerZeroPad;
 
-  /// Decoration to apply to central box where the selected integer value 
+  /// Decoration to apply to central box where the selected integer value
   /// is placed
   final Decoration? integerDecoration;
 
-  /// Decoration to apply to central box where the selected decimal value 
+  /// Decoration to apply to central box where the selected decimal value
   /// is placed
   final Decoration? decimalDecoration;
 

@@ -159,7 +159,7 @@ class InfiniteListViewState extends State<InfiniteListView> {
       physics: scrollPhysics,
       viewportBuilder: (BuildContext context, ViewportOffset offset) => Builder(
         builder: (BuildContext context) {
-          /// Build negative [ScrollPosition] for the negative scrolling 
+          /// Build negative [ScrollPosition] for the negative scrolling
           /// [Viewport].
           var state = Scrollable.of(context);
           var negativeOffset = _InfiniteScrollPosition(
@@ -170,13 +170,13 @@ class InfiniteListViewState extends State<InfiniteListView> {
             negativeScroll: true,
           );
 
-          /// Keep the negative scrolling [Viewport] positioned to the 
+          /// Keep the negative scrolling [Viewport] positioned to the
           /// [ScrollPosition].
           offset.addListener(() {
             negativeOffset._forceNegativePixels(offset.pixels);
           });
 
-          /// Stack the two [Viewport]s on top of each other so they move in 
+          /// Stack the two [Viewport]s on top of each other so they move in
           /// sync.
           return Stack(
             children: <Widget>[
@@ -315,7 +315,7 @@ class InfiniteListViewState extends State<InfiniteListView> {
   }
 }
 
-/// Same as a [ScrollController] except it provides [ScrollPosition] objects 
+/// Same as a [ScrollController] except it provides [ScrollPosition] objects
 /// with infinite bounds.
 class InfiniteScrollController extends ScrollController {
   /// Creates a new [InfiniteScrollController]
