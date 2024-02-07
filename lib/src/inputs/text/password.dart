@@ -22,6 +22,7 @@ class FlutterFormInputPassword extends StatefulWidget {
     this.onFieldSubmitted,
     this.enabled = true,
     this.decoration,
+    this.controller,
   });
   final Widget? label;
   final FocusNode? focusNode;
@@ -34,6 +35,7 @@ class FlutterFormInputPassword extends StatefulWidget {
   final Function(String?)? onFieldSubmitted;
   final bool enabled;
   final InputDecoration? decoration;
+  final TextEditingController? controller;
 
   @override
   State<FlutterFormInputPassword> createState() => _PasswordTextFieldState();
@@ -57,6 +59,7 @@ class _PasswordTextFieldState extends State<FlutterFormInputPassword> {
         InputDecoration(suffixIcon: suffixIcon);
 
     return TextFormField(
+      controller: widget.controller,
       style: widget.style,
       initialValue: widget.initialValue,
       inputFormatters: widget.inputFormatters,
