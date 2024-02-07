@@ -66,3 +66,6 @@
 
 ## 3.0.0
 * Updated the FlutterFormInputSwitch to FlutterFormInputBool. This now includes a parameter to either show a checkbox or switch
+
+## 3.1.0
+* `FlutterFormInputPassword` now has the controller parameter to set the `TextEditingController` of the `TextFormField`
