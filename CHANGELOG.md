@@ -69,3 +69,6 @@
 
 ## 3.1.0
 * `FlutterFormInputPassword` now has the controller parameter to set the `TextEditingController` of the `TextFormField`
+
+## 3.2.0
+* Added `FlutterFormInputPhone`
