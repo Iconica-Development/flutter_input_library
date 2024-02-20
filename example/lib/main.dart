@@ -54,6 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 Container(height: 10),
+                const Text('FlutterFormInputPhone'),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: FlutterFormInputPhone(
+                    onChanged: (v) {
+                      debugPrint('Phone number: $v');
+                    },
+                  ),
+                ),
+                Container(height: 10),
                 const Text('FlutterFormInputBool'),
                 FlutterFormInputBool(
                   initialValue: true,
