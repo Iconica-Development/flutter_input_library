@@ -85,7 +85,6 @@ class _BoolWidgetState extends State<BoolWidget> {
           focusNode: widget.focusNode,
           onChanged: onChanged,
         );
-        break;
 
       case BoolWidgetType.checkbox:
         child = Checkbox(
@@ -97,7 +96,6 @@ class _BoolWidgetState extends State<BoolWidget> {
             }
           },
         );
-        break;
     }
 
     return Column(

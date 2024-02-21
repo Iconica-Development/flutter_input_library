@@ -21,9 +21,8 @@ class FlutterFormInputPhone extends StatefulWidget {
     this.dialCodeSelectorStyle,
     this.enabled = true,
     this.priorityCountries = const ['NL', 'BE', 'LU'],
-    this.dialCodeSelectorUnderline,
-    this.dialCodeSelectorWidth = 100,
-    this.dialCodeWrapper,
+    this.textAlignVertical = TextAlignVertical.top,
+    this.dialCodeSelectorPadding = const EdgeInsets.only(top: 6),
   });
 
   final InputDecoration? decoration;
@@ -37,9 +36,8 @@ class FlutterFormInputPhone extends StatefulWidget {
   final TextStyle? dialCodeSelectorStyle;
   final bool enabled;
   final List<String>? priorityCountries;
-  final Widget? dialCodeSelectorUnderline;
-  final double dialCodeSelectorWidth;
-  final Widget Function(Widget child)? dialCodeWrapper;
+  final EdgeInsets dialCodeSelectorPadding;
+  final TextAlignVertical textAlignVertical;
 
   @override
   State<FlutterFormInputPhone> createState() => _FlutterFormInputPhoneState();
@@ -87,68 +85,62 @@ class _FlutterFormInputPhoneState extends State<FlutterFormInputPhone> {
           label: widget.label ?? const Text('Phone number'),
         );
 
-    var dropDownButton = DropdownButton(
-      value: _selectedCountry,
-      style: widget.dialCodeSelectorStyle,
-      underline: widget.dialCodeSelectorUnderline,
-      items: [
-        for (var country in _countryList) ...[
-          DropdownMenuItem(
-            value: country,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(country.flag),
-                const SizedBox(
-                  width: 4,
+    return FlutterFormInputPlainText(
+      label: widget.label,
+      style: widget.numberFieldStyle,
+      initialValue: widget.initialValue?.number,
+      onSaved: (value) => widget.onSaved?.call(
+        PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
+      ),
+      validator: (value) => widget.validator?.call(
+        PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
+      ),
+      onChanged: (value) => widget.onChanged?.call(
+        PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
+      ),
+      onFieldSubmitted: (value) => widget.onFieldSubmitted?.call(
+        PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
+      ),
+      decoration: inputDecoration.copyWith(
+        contentPadding: EdgeInsets.zero,
+        prefixIcon: Padding(
+          padding: widget.dialCodeSelectorPadding,
+          child: DropdownButton(
+            padding: EdgeInsets.zero,
+            elevation: 0,
+            value: _selectedCountry,
+            style: widget.dialCodeSelectorStyle,
+            underline: const SizedBox.shrink(),
+            items: [
+              for (var country in _countryList) ...[
+                DropdownMenuItem(
+                  value: country,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(country.flag),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Text('+${country.dialCode}'),
+                    ],
+                  ),
                 ),
-                Text('+${country.dialCode}'),
               ],
-            ),
-          ),
-        ],
-      ],
-      onChanged: (value) {
-        if (value != null) {
-          setState(() {
-            _selectedCountry = value;
-          });
-        }
-      },
-    );
-
-    return Row(
-      children: [
-        Container(
-          padding: const EdgeInsets.only(top: 16),
-          width: widget.dialCodeSelectorWidth,
-          child: widget.dialCodeWrapper?.call(dropDownButton) ?? dropDownButton,
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        Expanded(
-          child: FlutterFormInputPlainText(
-            style: widget.numberFieldStyle,
-            initialValue: widget.initialValue?.number,
-            onSaved: (value) => widget.onSaved?.call(
-              PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
-            ),
-            validator: (value) => widget.validator?.call(
-              PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
-            ),
-            onChanged: (value) => widget.onChanged?.call(
-              PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
-            ),
-            onFieldSubmitted: (value) => widget.onFieldSubmitted?.call(
-              PhoneNumber(dialCode: _selectedCountry.dialCode, number: value),
-            ),
-            decoration: inputDecoration,
-            keyboardType: TextInputType.phone,
-            enabled: widget.enabled,
+            ],
+            onChanged: (value) {
+              if (value != null) {
+                setState(() {
+                  _selectedCountry = value;
+                });
+              }
+            },
           ),
         ),
-      ],
+      ),
+      keyboardType: TextInputType.phone,
+      enabled: widget.enabled,
+      textAlignVertical: widget.textAlignVertical,
     );
   }
 }

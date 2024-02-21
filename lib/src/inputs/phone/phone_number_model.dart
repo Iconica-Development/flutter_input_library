@@ -1,5 +1,5 @@
 class PhoneNumber {
-  PhoneNumber({
+  const PhoneNumber({
     this.dialCode,
     this.number,
   });
