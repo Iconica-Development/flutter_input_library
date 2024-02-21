@@ -72,3 +72,7 @@
 
 ## 3.2.0
 * Added `FlutterFormInputPhone`
+
+## 3.2.1
+* Added `PhoneNumber` model to save the `FlutterFormInputPhone` result.
+* Added more customization for `FlutterFormInputPhone`.

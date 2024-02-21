@@ -107,7 +107,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           userInput = unformatted != null
               ? widget.dateFormat.format(unformatted)
               : userInput;
-          break;
+
         case FlutterFormDateTimeType.dateTime:
           await getInputFromUser(FlutterFormDateTimeType.date)
               .then((value) async {
@@ -132,7 +132,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
               }
             }
           });
-          break;
+
         case FlutterFormDateTimeType.range:
           if (context.mounted) {
             userInput = await showDateRangePicker(
@@ -147,7 +147,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
                   : '',
             );
           }
-          break;
+
         case FlutterFormDateTimeType.time:
           if (context.mounted) {
             userInput = await showTimePicker(
