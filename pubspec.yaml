@@ -4,7 +4,7 @@ version: 3.2.0
 repository: https://github.com/Iconica-Development/flutter_input_library
 
 environment:
-  sdk: ">=2.18.2 <3.0.0"
+  sdk: ^3.0.0
   flutter: ">=1.17.0"
 
 dependencies:
