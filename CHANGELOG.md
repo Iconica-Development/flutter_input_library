@@ -76,3 +76,8 @@
 ## 3.2.1
 * Added `PhoneNumber` model to save the `FlutterFormInputPhone` result.
 * Added more customization for `FlutterFormInputPhone`.
+
+## 3.3.0
+* Added `FlutterFormInputRadioPicker`
+* Changed the `FlutterFormInputNumberPicker` and added axis parameter.
+* Changed the formating of the result value of the `showDateRangePicker`. 
