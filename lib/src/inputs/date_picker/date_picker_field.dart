@@ -142,7 +142,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
               initialDateRange: initialDateRange,
             ).then(
               (value) => value != null
-                  ? '${widget.dateFormat.format(value.start)} -'
+                  ? '${widget.dateFormat.format(value.start)} - '
                       '${widget.dateFormat.format(value.end)}'
                   : '',
             );

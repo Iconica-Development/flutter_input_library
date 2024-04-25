@@ -182,8 +182,8 @@ class NumberPickerState extends State<NumberPicker> {
               children: [
                 Center(
                   child: Container(
-                    width: 300,
-                    height: 45,
+                    width: widget.itemWidth,
+                    height: widget.itemHeight,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: const Color(0xFFD8D8D8).withOpacity(0.50),

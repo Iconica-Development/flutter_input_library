@@ -5,6 +5,7 @@ export 'number_picker/number_picker.dart';
 export 'phone/countries.dart';
 export 'phone/phone.dart';
 export 'phone/phone_number_model.dart';
+export 'radio/radio_picker.dart';
 export 'scroll_picker/scroll_picker.dart';
 export 'slider/slider.dart';
 export 'text/password.dart';

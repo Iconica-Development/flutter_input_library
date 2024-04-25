@@ -15,6 +15,7 @@ class FlutterFormInputNumberPicker extends StatelessWidget {
     this.onChanged,
     this.initialValue,
     this.validator,
+    this.axis = Axis.vertical,
   }) : assert(minValue < maxValue, 'minValue must be less than maxValue');
 
   final int minValue;
@@ -23,6 +24,7 @@ class FlutterFormInputNumberPicker extends StatelessWidget {
   final String? Function(int?)? validator;
   final int? initialValue;
   final Function(int?)? onChanged;
+  final Axis axis;
 
   @override
   Widget build(BuildContext context) => NumberPickerFormField(
@@ -32,6 +34,7 @@ class FlutterFormInputNumberPicker extends StatelessWidget {
         validator: (value) => validator?.call(value),
         onChanged: (value) => onChanged?.call(value),
         initialValue: initialValue ?? 0,
+        axis: axis,
       );
 }
 
@@ -44,6 +47,7 @@ class NumberPickerFormField extends FormField<int> {
     int super.initialValue = 0,
     int minValue = 0,
     int maxValue = 100,
+    Axis axis = Axis.vertical,
   }) : super(
           builder: (FormFieldState<int> state) => NumberPicker(
             minValue: minValue,
@@ -55,7 +59,9 @@ class NumberPickerFormField extends FormField<int> {
               state.didChange(value);
             },
             itemHeight: 35,
+            itemWidth: 35,
             itemCount: 5,
+            axis: axis,
           ),
         );
 }
