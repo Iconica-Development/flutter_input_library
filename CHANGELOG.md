@@ -80,4 +80,7 @@
 ## 3.3.0
 * Added `FlutterFormInputRadioPicker`
 * Changed the `FlutterFormInputNumberPicker` and added axis parameter.
-* Changed the formating of the result value of the `showDateRangePicker`. 
+* Changed the formating of the result value of the `showDateRangePicker`.
+
+## 3.3.1
+* Loosened the dependen on intl to be more compatible with several Flutter versions
