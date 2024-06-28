@@ -84,3 +84,6 @@
 
 ## 3.3.1
 * Loosened the dependen on intl to be more compatible with several Flutter versions
+
+## 3.4.0
+* Added `FlutterFormInputDropdown`

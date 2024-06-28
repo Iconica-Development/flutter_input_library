@@ -1,6 +1,7 @@
 export 'bool/bool.dart';
 export 'carousel/carousel.dart';
 export 'date_picker/date_picker.dart';
+export 'dropdown/dropdown.dart';
 export 'number_picker/number_picker.dart';
 export 'phone/countries.dart';
 export 'phone/phone.dart';
