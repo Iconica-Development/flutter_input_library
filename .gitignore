@@ -35,3 +35,7 @@ example/windows
 example/web
 example/android
 example/ios
+
+# FVM Version Cache
+.fvm/
+.fvmrc
