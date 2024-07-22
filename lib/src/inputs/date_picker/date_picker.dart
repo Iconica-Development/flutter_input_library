@@ -36,6 +36,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
     this.timePickerEntryMode = TimePickerEntryMode.dial,
     this.enabled = true,
     this.onTapEnabled = true,
+    this.selectableTimePredicate,
   });
   final TextStyle? style;
   final InputDecoration? decoration;
@@ -57,6 +58,7 @@ class FlutterFormInputDateTime extends StatelessWidget {
   final TimePickerEntryMode timePickerEntryMode;
   final bool enabled;
   final bool onTapEnabled;
+  final bool Function(DateTime)? selectableTimePredicate;
 
   @override
   Widget build(BuildContext context) => DateTimeInputField(
@@ -80,5 +82,6 @@ class FlutterFormInputDateTime extends StatelessWidget {
         timePickerEntryMode: timePickerEntryMode,
         enabled: enabled,
         onTapEnabled: onTapEnabled,
+        selectableDayPredicate: selectableTimePredicate,
       );
 }

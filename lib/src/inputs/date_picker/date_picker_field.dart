@@ -31,6 +31,7 @@ class DateTimeInputField extends StatefulWidget {
     this.validator,
     this.enabled = true,
     this.onTapEnabled = true,
+    this.selectableDayPredicate,
   });
   final TextStyle? style;
   final InputDecoration? decoration;
@@ -52,6 +53,7 @@ class DateTimeInputField extends StatefulWidget {
   final TimePickerEntryMode timePickerEntryMode;
   final bool enabled;
   final bool onTapEnabled;
+  final bool Function(DateTime)? selectableDayPredicate;
 
   @override
   State<DateTimeInputField> createState() => _DateInputFieldState();
@@ -103,6 +105,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
             context: context,
             firstDate: firstDate,
             lastDate: lastDate,
+            selectableDayPredicate: widget.selectableDayPredicate,
           );
           userInput = unformatted != null
               ? widget.dateFormat.format(unformatted)
