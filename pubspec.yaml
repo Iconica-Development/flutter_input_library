@@ -3,11 +3,14 @@ description: A new Flutter package project.
 version: 3.5.0
 repository: https://github.com/Iconica-Development/flutter_input_library
 
+publish_to: https://forgejo.internal.iconica.nl/api/packages/internal/pub
+
 environment:
-  sdk: ^3.0.0
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  collection: ^1.18.0
   flutter:
     sdk: flutter
   intl: ">=0.18.0 <1.0.0"
