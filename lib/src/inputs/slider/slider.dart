@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/slider/slider_field.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/slider/slider_field.dart";
 
 class FlutterFormInputSlider extends StatelessWidget {
   const FlutterFormInputSlider({
@@ -15,7 +15,7 @@ class FlutterFormInputSlider extends StatelessWidget {
     this.initialValue,
     this.validator,
     this.focusNode,
-  }) : assert(minValue < maxValue, 'minValue must be less than maxValue');
+  }) : assert(minValue < maxValue, "minValue must be less than maxValue");
 
   final int minValue;
   final int maxValue;

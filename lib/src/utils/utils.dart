@@ -2,4 +2,4 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-export 'validators/validators.dart';
+export "validators/validators.dart";

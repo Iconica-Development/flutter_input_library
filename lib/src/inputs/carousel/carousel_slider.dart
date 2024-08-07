@@ -4,17 +4,17 @@
 ///
 library carousel_slider;
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_controller.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_options.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_state.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_utils.dart';
+import "package:flutter/gestures.dart";
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_controller.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_options.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_state.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_utils.dart";
 
-export 'carousel_controller.dart';
-export 'carousel_options.dart';
+export "carousel_controller.dart";
+export "carousel_options.dart";
 
 typedef ExtendedIndexedWidgetBuilder = Widget Function(
   BuildContext context,
@@ -81,6 +81,7 @@ class CarouselSliderState extends State<CarouselSlider>
   /// [mode] is related to why the page is being changed.
   CarouselPageChangedReason mode = CarouselPageChangedReason.controller;
 
+  // ignore: use_setters_to_change_properties
   void changeMode(CarouselPageChangedReason mode) {
     this.mode = mode;
   }

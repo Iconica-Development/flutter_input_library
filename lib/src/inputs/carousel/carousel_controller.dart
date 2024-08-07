@@ -2,12 +2,12 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_options.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_state.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_utils.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_options.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_state.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_utils.dart";
 
 abstract class CarouselController {
   factory CarouselController() => CarouselControllerImpl();

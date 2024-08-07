@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/scroll_picker/scroll_picker_decoration.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/scroll_picker/scroll_picker_decoration.dart";
 
 class ScrollPicker extends StatefulWidget {
   const ScrollPicker({

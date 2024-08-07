@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_input_library/src/inputs/number_picker/infinite_listview.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter_input_library/src/inputs/number_picker/infinite_listview.dart";
 
 typedef TextMapper = String Function(String numberText);
 
@@ -29,8 +29,8 @@ class NumberPicker extends StatefulWidget {
     this.zeroPad = false,
     this.textMapper,
     this.infiniteLoop = false,
-  })  : assert(minValue <= value, 'value must be greater than minValue'),
-        assert(value <= maxValue, 'value must be less than maxValue');
+  })  : assert(minValue <= value, "value must be greater than minValue"),
+        assert(value <= maxValue, "value must be less than maxValue");
 
   /// Min value user can pick
   final int minValue;
@@ -248,7 +248,7 @@ class NumberPickerState extends State<NumberPicker> {
 
   String _getDisplayedValue(int value) {
     var text = widget.zeroPad
-        ? value.toString().padLeft(widget.maxValue.toString().length, '0')
+        ? value.toString().padLeft(widget.maxValue.toString().length, "0")
         : value.toString();
     if (widget.textMapper != null) {
       return widget.textMapper!(text);

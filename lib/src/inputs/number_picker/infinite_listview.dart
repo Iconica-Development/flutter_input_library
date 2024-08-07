@@ -2,12 +2,12 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:math' as math;
+import "dart:math" as math;
 
-import 'package:flutter/gestures.dart' show DragStartBehavior;
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import "package:flutter/gestures.dart" show DragStartBehavior;
+import "package:flutter/material.dart";
+import "package:flutter/rendering.dart";
+import "package:flutter/widgets.dart";
 
 /// Infinite ListView
 ///
@@ -274,18 +274,18 @@ class InfiniteListViewState extends State<InfiniteListView> {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-        .add(EnumProperty<Axis>('scrollDirection', widget.scrollDirection));
+        .add(EnumProperty<Axis>("scrollDirection", widget.scrollDirection));
     properties.add(
       FlagProperty(
-        'reverse',
+        "reverse",
         value: widget.reverse,
-        ifTrue: 'reversed',
+        ifTrue: "reversed",
         showName: true,
       ),
     );
     properties.add(
       DiagnosticsProperty<ScrollController>(
-        'controller',
+        "controller",
         widget.controller,
         showName: false,
         defaultValue: null,
@@ -293,7 +293,7 @@ class InfiniteListViewState extends State<InfiniteListView> {
     );
     properties.add(
       DiagnosticsProperty<ScrollPhysics>(
-        'physics',
+        "physics",
         widget.physics,
         showName: false,
         defaultValue: null,
@@ -301,16 +301,16 @@ class InfiniteListViewState extends State<InfiniteListView> {
     );
     properties.add(
       DiagnosticsProperty<EdgeInsetsGeometry>(
-        'padding',
+        "padding",
         widget.padding,
         defaultValue: null,
       ),
     );
     properties.add(
-      DoubleProperty('itemExtent', widget.itemExtent, defaultValue: null),
+      DoubleProperty("itemExtent", widget.itemExtent, defaultValue: null),
     );
     properties.add(
-      DoubleProperty('cacheExtent', widget.cacheExtent, defaultValue: null),
+      DoubleProperty("cacheExtent", widget.cacheExtent, defaultValue: null),
     );
   }
 }

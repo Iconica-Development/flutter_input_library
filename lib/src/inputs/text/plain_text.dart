@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 class FlutterFormInputPlainText extends StatelessWidget {
   const FlutterFormInputPlainText({
@@ -53,7 +53,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   Widget build(BuildContext context) {
     var inputDecoration = decoration ??
         InputDecoration(
-          label: label ?? const Text('Plain text'),
+          label: label ?? const Text("Plain text"),
         );
 
     return TextFormField(

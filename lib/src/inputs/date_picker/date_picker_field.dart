@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/date_picker/date_picker.dart';
-import 'package:intl/intl.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/date_picker/date_picker.dart";
+import "package:intl/intl.dart";
 
 class DateTimeInputField extends StatefulWidget {
   const DateTimeInputField({
@@ -65,7 +65,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
   late final DateTime initialDate;
   late final DateTimeRange initialDateRange;
   late final TimeOfDay? initialTime;
-  String currentValue = '';
+  String currentValue = "";
 
   @override
   void initState() {
@@ -97,7 +97,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       FlutterFormDateTimeType inputType, [
       DateFormat? dateFormat,
     ]) async {
-      var userInput = '';
+      var userInput = "";
       switch (inputType) {
         case FlutterFormDateTimeType.date:
           var unformatted = await showDatePicker(
@@ -114,15 +114,15 @@ class _DateInputFieldState extends State<DateTimeInputField> {
         case FlutterFormDateTimeType.dateTime:
           await getInputFromUser(FlutterFormDateTimeType.date)
               .then((value) async {
-            if (value != '') {
+            if (value != "") {
               var secondInput =
                   await getInputFromUser(FlutterFormDateTimeType.time);
-              if (secondInput != '') {
+              if (secondInput != "") {
                 var date = widget.dateFormat.parse(value);
                 var time = dateFormat != null
-                    ? dateFormat.parse('01 01 1970 $secondInput')
-                    : DateFormat('dd MM yyyy HH:mm')
-                        .parse('01 01 1970 $secondInput');
+                    ? dateFormat.parse("01 01 1970 $secondInput")
+                    : DateFormat("dd MM yyyy HH:mm")
+                        .parse("01 01 1970 $secondInput");
                 userInput = widget.dateFormat.format(
                   DateTime(
                     date.year,
@@ -145,9 +145,9 @@ class _DateInputFieldState extends State<DateTimeInputField> {
               initialDateRange: initialDateRange,
             ).then(
               (value) => value != null
-                  ? '${widget.dateFormat.format(value.start)} - '
-                      '${widget.dateFormat.format(value.end)}'
-                  : '',
+                  ? "${widget.dateFormat.format(value.start)} - "
+                      "${widget.dateFormat.format(value.end)}"
+                  : "",
             );
           }
 
@@ -164,7 +164,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
               initialTime: initialTimeOfDay,
             ).then(
               (value) => value == null
-                  ? ''
+                  ? ""
                   : MaterialLocalizations.of(context)
                       .formatTimeOfDay(value, alwaysUse24HourFormat: true),
             );
@@ -185,12 +185,12 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           ? () async {
               var userInput = await getInputFromUser(
                 widget.inputType,
-                DateFormat('dd MM yyyy HH:mm'),
+                DateFormat("dd MM yyyy HH:mm"),
               );
               setState(() {
-                currentValue = userInput != '' ? userInput : currentValue;
+                currentValue = userInput != "" ? userInput : currentValue;
                 widget.onChanged
-                    ?.call(userInput != '' ? userInput : currentValue);
+                    ?.call(userInput != "" ? userInput : currentValue);
               });
             }
           : null,
@@ -199,7 +199,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           InputDecoration(
             suffixIcon: widget.showIcon ? Icon(widget.icon) : null,
             focusColor: Theme.of(context).primaryColor,
-            label: widget.label ?? const Text('Date'),
+            label: widget.label ?? const Text("Date"),
           ),
       enabled: widget.enabled,
     );

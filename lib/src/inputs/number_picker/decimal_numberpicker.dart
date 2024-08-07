@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'dart:math' as math;
+import "dart:math" as math;
 
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import 'package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart';
+import "package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart";
 
 class DecimalNumberPicker extends StatelessWidget {
   const DecimalNumberPicker({
@@ -28,8 +28,8 @@ class DecimalNumberPicker extends StatelessWidget {
     this.integerZeroPad = false,
     this.integerDecoration,
     this.decimalDecoration,
-  })  : assert(minValue <= value, 'value must be greater than minValue'),
-        assert(value <= maxValue, 'value must be less than maxValue');
+  })  : assert(minValue <= value, "value must be greater than minValue"),
+        assert(value <= maxValue, "value must be less than maxValue");
   final int minValue;
   final int maxValue;
   final double value;
