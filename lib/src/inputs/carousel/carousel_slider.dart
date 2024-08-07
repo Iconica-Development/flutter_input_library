@@ -26,25 +26,25 @@ class CarouselSlider extends StatefulWidget {
   CarouselSlider({
     required this.items,
     required this.options,
-    CarouselController? carouselController,
+    FlutterInputCarouselController? carouselController,
     super.key,
   })  : itemBuilder = null,
         itemCount = items != null ? items.length : 0,
         _carouselController = carouselController != null
             ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl;
+            : FlutterInputCarouselController() as CarouselControllerImpl;
 
   /// The on demand item builder constructor/
   CarouselSlider.builder({
     required this.itemCount,
     required this.itemBuilder,
     required this.options,
-    CarouselController? carouselController,
+    FlutterInputCarouselController? carouselController,
     super.key,
   })  : items = null,
         _carouselController = carouselController != null
             ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl;
+            : FlutterInputCarouselController() as CarouselControllerImpl;
 
   /// [CarouselOptions] to create a [CarouselState] with.
   final CarouselOptions options;

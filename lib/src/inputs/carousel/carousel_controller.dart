@@ -9,8 +9,8 @@ import "package:flutter_input_library/src/inputs/carousel/carousel_options.dart"
 import "package:flutter_input_library/src/inputs/carousel/carousel_state.dart";
 import "package:flutter_input_library/src/inputs/carousel/carousel_utils.dart";
 
-abstract class CarouselController {
-  factory CarouselController() => CarouselControllerImpl();
+abstract class FlutterInputCarouselController {
+  factory FlutterInputCarouselController() => CarouselControllerImpl();
   bool get ready;
 
   Future<void> get onReady;
@@ -28,7 +28,7 @@ abstract class CarouselController {
   void stopAutoPlay();
 }
 
-class CarouselControllerImpl implements CarouselController {
+class CarouselControllerImpl implements FlutterInputCarouselController {
   final Completer<void> _readyCompleter = Completer<void>();
 
   CarouselState? _state;

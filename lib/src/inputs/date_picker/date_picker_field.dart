@@ -100,16 +100,18 @@ class _DateInputFieldState extends State<DateTimeInputField> {
       var userInput = "";
       switch (inputType) {
         case FlutterFormDateTimeType.date:
-          var unformatted = await showDatePicker(
-            initialDate: initialDate,
-            context: context,
-            firstDate: firstDate,
-            lastDate: lastDate,
-            selectableDayPredicate: widget.selectableDayPredicate,
-          );
-          userInput = unformatted != null
-              ? widget.dateFormat.format(unformatted)
-              : userInput;
+          if (context.mounted) {
+            var unformatted = await showDatePicker(
+              initialDate: initialDate,
+              context: context,
+              firstDate: firstDate,
+              lastDate: lastDate,
+              selectableDayPredicate: widget.selectableDayPredicate,
+            );
+            userInput = unformatted != null
+                ? widget.dateFormat.format(unformatted)
+                : userInput;
+          }
 
         case FlutterFormDateTimeType.dateTime:
           await getInputFromUser(FlutterFormDateTimeType.date)
@@ -152,6 +154,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
           }
 
         case FlutterFormDateTimeType.time:
+          var locale = MaterialLocalizations.of(context);
           if (context.mounted) {
             userInput = await showTimePicker(
               initialEntryMode: widget.timePickerEntryMode,
@@ -165,8 +168,7 @@ class _DateInputFieldState extends State<DateTimeInputField> {
             ).then(
               (value) => value == null
                   ? ""
-                  : MaterialLocalizations.of(context)
-                      .formatTimeOfDay(value, alwaysUse24HourFormat: true),
+                  : locale.formatTimeOfDay(value, alwaysUse24HourFormat: true),
             );
           }
       }
