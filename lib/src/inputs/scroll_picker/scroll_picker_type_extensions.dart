@@ -35,7 +35,7 @@ class TypeUtils {
     WeekDay end,
   ) {
     if (start.index > end.index) {
-      throw ArgumentError('Start month must be before or equal to end month.');
+      throw ArgumentError("Start month must be before or equal to end month.");
     }
 
     var result = <DateTime>[];
@@ -49,7 +49,7 @@ class TypeUtils {
   /// Creates list of Datetime with the months from start to end.
   List<DateTime> createMonthList(Month start, Month end, {int? year}) {
     if (start.index > end.index) {
-      throw ArgumentError('Start month must be before or equal to end month.');
+      throw ArgumentError("Start month must be before or equal to end month.");
     }
 
     var result = <DateTime>[];
@@ -65,7 +65,7 @@ class TypeUtils {
   /// Creates a list of Datetime with the years from start to end.
   List<DateTime> createYearList(int start, int end) {
     if (start > end) {
-      throw ArgumentError('Start year must be before or equal to year month.');
+      throw ArgumentError("Start year must be before or equal to year month.");
     }
 
     var result = <DateTime>[];

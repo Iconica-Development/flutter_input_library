@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_slider.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_slider.dart";
 
 class CarouselState {
   CarouselState(

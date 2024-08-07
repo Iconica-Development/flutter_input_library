@@ -2,4 +2,4 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-export 'email/email.dart';
+export "email/email.dart";

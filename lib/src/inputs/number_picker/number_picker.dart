@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import 'package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart';
+import "package:flutter_input_library/src/inputs/number_picker/number_picker_field.dart";
 
 class FlutterFormInputNumberPicker extends StatelessWidget {
   const FlutterFormInputNumberPicker({
@@ -16,7 +16,7 @@ class FlutterFormInputNumberPicker extends StatelessWidget {
     this.initialValue,
     this.validator,
     this.axis = Axis.vertical,
-  }) : assert(minValue < maxValue, 'minValue must be less than maxValue');
+  }) : assert(minValue < maxValue, "minValue must be less than maxValue");
 
   final int minValue;
   final int maxValue;

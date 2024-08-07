@@ -4,17 +4,17 @@
 ///
 library carousel_slider;
 
-import 'dart:async';
+import "dart:async";
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_controller.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_options.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_state.dart';
-import 'package:flutter_input_library/src/inputs/carousel/carousel_utils.dart';
+import "package:flutter/gestures.dart";
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_controller.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_options.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_state.dart";
+import "package:flutter_input_library/src/inputs/carousel/carousel_utils.dart";
 
-export 'carousel_controller.dart';
-export 'carousel_options.dart';
+export "carousel_controller.dart";
+export "carousel_options.dart";
 
 typedef ExtendedIndexedWidgetBuilder = Widget Function(
   BuildContext context,
@@ -26,25 +26,25 @@ class CarouselSlider extends StatefulWidget {
   CarouselSlider({
     required this.items,
     required this.options,
-    CarouselController? carouselController,
+    FlutterInputCarouselController? carouselController,
     super.key,
   })  : itemBuilder = null,
         itemCount = items != null ? items.length : 0,
         _carouselController = carouselController != null
             ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl;
+            : FlutterInputCarouselController() as CarouselControllerImpl;
 
   /// The on demand item builder constructor/
   CarouselSlider.builder({
     required this.itemCount,
     required this.itemBuilder,
     required this.options,
-    CarouselController? carouselController,
+    FlutterInputCarouselController? carouselController,
     super.key,
   })  : items = null,
         _carouselController = carouselController != null
             ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl;
+            : FlutterInputCarouselController() as CarouselControllerImpl;
 
   /// [CarouselOptions] to create a [CarouselState] with.
   final CarouselOptions options;
@@ -81,6 +81,7 @@ class CarouselSliderState extends State<CarouselSlider>
   /// [mode] is related to why the page is being changed.
   CarouselPageChangedReason mode = CarouselPageChangedReason.controller;
 
+  // ignore: use_setters_to_change_properties
   void changeMode(CarouselPageChangedReason mode) {
     this.mode = mode;
   }

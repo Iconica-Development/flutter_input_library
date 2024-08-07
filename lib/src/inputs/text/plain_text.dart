@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 class FlutterFormInputPlainText extends StatelessWidget {
   const FlutterFormInputPlainText({
@@ -53,7 +53,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   Widget build(BuildContext context) {
     var inputDecoration = decoration ??
         InputDecoration(
-          label: label ?? const Text('Plain text'),
+          label: label ?? const Text("Plain text"),
         );
 
     return TextFormField(
@@ -96,6 +96,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.textCapitalization = TextCapitalization.sentences,
+    this.style,
   });
 
   final Widget? label;
@@ -113,12 +114,14 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final TextCapitalization textCapitalization;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) => Column(
         children: [
           Expanded(
             child: FlutterFormInputPlainText(
+              style: style,
               label: label,
               textAlignVertical: TextAlignVertical.top,
               expands: true,

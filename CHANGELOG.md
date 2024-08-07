@@ -1,3 +1,8 @@
+## 3.6.0
+* Added style parameter to `FlutterFormInputMultiLine`
+* Upgrade flutter_iconica_analysis to 7.0.0
+* Changed the name of the `CarouselController` to `FlutterInputCarouselController`
+
 ## 3.5.0
 * Added `selectableTimePredicate` to the `DateTimeInputField` constructor
 

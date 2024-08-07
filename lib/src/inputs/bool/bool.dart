@@ -4,9 +4,9 @@
 
 // ignore_for_file: avoid_positional_boolean_parameters
 
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
-import 'package:flutter_input_library/src/inputs/bool/bool_field.dart';
+import "package:flutter_input_library/src/inputs/bool/bool_field.dart";
 
 class FlutterFormInputBool extends StatelessWidget {
   const FlutterFormInputBool({

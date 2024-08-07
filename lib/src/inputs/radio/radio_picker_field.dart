@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_input_library/src/inputs/radio/radio_picker.dart';
+import "package:flutter/material.dart";
+import "package:flutter_input_library/src/inputs/radio/radio_picker.dart";
 
 class RadioPicker extends StatefulWidget {
   const RadioPicker({
@@ -18,7 +18,7 @@ class RadioPicker extends StatefulWidget {
 }
 
 class _RadioPickerState extends State<RadioPicker> {
-  late var value = widget.initialValue;
+  late RadioItem? value = widget.initialValue;
 
   @override
   Widget build(BuildContext context) => Wrap(
