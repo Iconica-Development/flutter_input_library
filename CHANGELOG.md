@@ -1,3 +1,6 @@
+## 3.6.0
+* Added style parameter to `FlutterFormInputMultiLine`
+
 ## 3.5.0
 * Added `selectableTimePredicate` to the `DateTimeInputField` constructor
 

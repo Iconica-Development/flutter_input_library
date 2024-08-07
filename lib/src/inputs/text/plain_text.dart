@@ -96,6 +96,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.textCapitalization = TextCapitalization.sentences,
+    this.style,
   });
 
   final Widget? label;
@@ -113,12 +114,14 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final Function(String?)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final TextCapitalization textCapitalization;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) => Column(
         children: [
           Expanded(
             child: FlutterFormInputPlainText(
+              style: style,
               label: label,
               textAlignVertical: TextAlignVertical.top,
               expands: true,
