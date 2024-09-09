@@ -1,6 +1,6 @@
 name: flutter_input_library
 description: A new Flutter package project.
-version: 3.6.0
+version: 3.7.0
 repository: https://github.com/Iconica-Development/flutter_input_library
 
 publish_to: https://forgejo.internal.iconica.nl/api/packages/internal/pub
@@ -22,5 +22,3 @@ dev_dependencies:
     git:
       url: https://github.com/Iconica-Development/flutter_iconica_analysis
       ref: 7.0.0
-
-flutter:

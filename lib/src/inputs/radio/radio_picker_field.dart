@@ -5,6 +5,7 @@ class RadioPicker extends StatefulWidget {
   const RadioPicker({
     required this.onChanged,
     required this.items,
+    this.itemSpacing = 16.0,
     this.initialValue,
     super.key,
   });
@@ -12,6 +13,9 @@ class RadioPicker extends StatefulWidget {
   final RadioItem? initialValue;
   final Function(RadioItem) onChanged;
   final List<RadioItem> items;
+
+  /// The spacing between each item.
+  final double itemSpacing;
 
   @override
   State<RadioPicker> createState() => _RadioPickerState();
@@ -42,6 +46,9 @@ class _RadioPickerState extends State<RadioPicker> {
                 ),
               ],
             ),
+            if (widget.items.last != item) ...[
+              SizedBox(width: widget.itemSpacing),
+            ],
           ],
         ],
       );
