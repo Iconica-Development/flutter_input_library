@@ -1,3 +1,7 @@
+## 3.7.0
+
+* Added a 16 pixel padding between the `FlutterFormInputRadioPicker` items that is customizable with the `itemSpacing` parameter.
+
 ## 3.6.0
 * Added style parameter to `FlutterFormInputMultiLine`
 * Upgrade flutter_iconica_analysis to 7.0.0

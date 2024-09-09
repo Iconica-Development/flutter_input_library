@@ -14,18 +14,21 @@ class FlutterFormInputRadioPicker extends StatelessWidget {
     this.onSaved,
     this.onChanged,
     this.initialValue,
+    this.itemSpacing = 16.0,
   });
 
   final Function(RadioItem?)? onSaved;
   final String? initialValue;
   final Function(RadioItem?)? onChanged;
   final List<RadioItem> items;
+  final double itemSpacing;
 
   @override
   Widget build(BuildContext context) => RadioPickerFormField(
         onSaved: (value) => onSaved?.call(value),
         onChanged: (value) => onChanged?.call(value),
         initialValue: items.firstWhereOrNull((i) => i.value == initialValue),
+        itemSpacing: itemSpacing,
         items: items,
       );
 }
@@ -34,6 +37,7 @@ class RadioPickerFormField extends FormField<RadioItem?> {
   RadioPickerFormField({
     required FormFieldSetter<RadioItem> super.onSaved,
     required List<RadioItem> items,
+    required double itemSpacing,
     void Function(RadioItem value)? onChanged,
     super.initialValue,
     super.key,
@@ -46,6 +50,7 @@ class RadioPickerFormField extends FormField<RadioItem?> {
             },
             items: items,
             initialValue: initialValue,
+            itemSpacing: itemSpacing,
           ),
         );
 }
