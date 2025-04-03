@@ -14,6 +14,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
     this.textAlignVertical,
     this.expands = false,
     this.maxLines = 1,
+    this.minLines,
     this.scrollPadding,
     this.maxLength,
     this.keyboardType,
@@ -33,6 +34,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
   final TextAlignVertical? textAlignVertical;
   final bool expands;
   final int? maxLines;
+  final int? minLines;
   final int? maxLength;
   final EdgeInsets? scrollPadding;
   final TextInputType? keyboardType;
@@ -70,6 +72,7 @@ class FlutterFormInputPlainText extends StatelessWidget {
       textAlignVertical: textAlignVertical,
       expands: expands,
       maxLines: maxLines,
+      minLines: minLines,
       maxLength: maxLength,
       keyboardType: keyboardType,
       enabled: enabled,
@@ -97,6 +100,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
     this.onFieldSubmitted,
     this.textCapitalization = TextCapitalization.sentences,
     this.style,
+    this.minLines,
   });
 
   final Widget? label;
@@ -115,6 +119,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
   final Function(String?)? onFieldSubmitted;
   final TextCapitalization textCapitalization;
   final TextStyle? style;
+  final int? minLines;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -126,6 +131,7 @@ class FlutterFormInputMultiLine extends StatelessWidget {
               textAlignVertical: TextAlignVertical.top,
               expands: true,
               maxLines: null,
+              minLines: minLines,
               focusNode: focusNode,
               maxLength: maxCharacters,
               initialValue: initialValue,

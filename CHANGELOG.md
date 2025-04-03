@@ -1,3 +1,7 @@
+## 3.8.0
+
+* Added the minLines parameter to the FlutterFormInputPlainText
+
 ## 3.7.0
 
 * Added a 16 pixel padding between the `FlutterFormInputRadioPicker` items that is customizable with the `itemSpacing` parameter.
